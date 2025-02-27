@@ -1,10 +1,12 @@
 <header class="ps-header ps-header--1">
+
     <div class="ps-noti">
         <div class="container">
             <p class="m-0">Due to the <strong>COVID 19 </strong>epidemic, orders may be processed with a slight delay
             </p>
         </div><a class="ps-noti__close"><i class="icon-cross"></i></a>
     </div>
+
     <div class="ps-header__top">
         <div class="container">
             <div class="ps-header__text">Need help? <strong>0020 500 - MYMEDI - 000</strong></div>
@@ -38,12 +40,20 @@
                             </form>
                         </div>
                     </li>
+
                     <li><a class="ps-header__item" href="wishlist.html"><i class="fa fa-heart-o"></i><span
                                 class="badge">3</span></a></li>
-                    <li><a class="ps-header__item" href="#" id="cart-mini"><i class="icon-cart-empty"></i><span
-                                class="badge">2</span></a>
-                        <div class="ps-cart--mini">
+
+                    <li>
+                        <a class="ps-header__item" href="{{route('view.cart')}}" id="cart-link">
+                            <i class="icon-cart-empty"></i>
+                            <span class="badge" id="cart-count">0</span> <!-- cart count -->
+                        </a>
+                        
+
+                        {{-- <div class="ps-cart--mini">
                             <ul class="ps-cart__items">
+
                                 <li class="ps-cart__item">
                                     <div class="ps-product--mini-cart"><a class="ps-product__thumbnail"
                                             href="product-default.html"><img src="img/products/055.jpg"
@@ -56,6 +66,7 @@
                                                 class="icon-cross"></i></a>
                                     </div>
                                 </li>
+
                                 <li class="ps-cart__item">
                                     <div class="ps-product--mini-cart"><a class="ps-product__thumbnail"
                                             href="product-default.html"><img src="img/products/001.jpg"
@@ -70,12 +81,15 @@
                                     </div>
                                 </li>
                             </ul>
+
                             <div class="ps-cart__total"><span>Subtotal </span><span>$399</span></div>
+                            
                             <div class="ps-cart__footer"><a class="ps-btn ps-btn--outline"
                                     href="shopping-cart.html">View Cart</a><a class="ps-btn ps-btn--warning"
                                     href="checkout.html">Checkout</a></div>
-                        </div>
+                        </div> --}}
                     </li>
+                    
                 </ul>
 
                 {{-- <div class="ps-language-currency"><a class="ps-dropdown-value" href="javascript:void(0);"

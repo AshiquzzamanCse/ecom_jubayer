@@ -23,6 +23,10 @@ Route::controller(FrontendController::class)->group(function () {
 
     //AddToCartProductHome
     Route::post('/product-store-cart', 'AddToCartProductHome');
+    Route::get('/view-cart', 'viewCart')->name('view.cart');
+
+    Route::get('/cart/remove/{rowId}','RemoveMiniCart')->name('cart.remove');
+
 
 });
 
