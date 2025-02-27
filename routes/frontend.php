@@ -16,3 +16,13 @@ Route::get('/projects/{slug}', [FrontendController::class, 'projectShow'])->name
 //Contact Section
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::post('/contact-store', [FrontendController::class, 'contactStore'])->name('contact.store');
+
+
+
+Route::controller(FrontendController::class)->group(function () {
+
+    //AddToCartProductHome
+    Route::post('/product-store-cart', 'AddToCartProductHome');
+
+});
+

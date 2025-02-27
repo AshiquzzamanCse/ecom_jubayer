@@ -10,6 +10,7 @@ use App\Models\MultiImage;
 use App\Models\Product;
 use App\Models\Team;
 use App\Models\Testimonial;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -39,11 +40,11 @@ class FrontendController extends Controller
 
         // Fetch associated images for the product using the product's id
         $multiImages = MultiImage::where('product_id', $product->id)->get();
-        $sizes = explode(',', $product->size);
-        $colors = explode(',', $product->color);
+        $sizes       = explode(',', $product->size);
+        $colors      = explode(',', $product->color);
 
         // Pass the product and the images to the view
-        return view('frontend.pages.product.product_details', compact('product', 'multiImages','sizes','colors'));
+        return view('frontend.pages.product.product_details', compact('product', 'multiImages', 'sizes', 'colors'));
     }
 
     //All Team
@@ -130,4 +131,62 @@ class FrontendController extends Controller
             return redirect()->back()->with('error', 'There was an issue processing your request. Please try again later.');
         }
     }
+
+    //AddToCartProductHome
+    public function AddToCartProductHome(Request $request)
+    {
+        $id = $request->product_id;
+
+        $product = Product::findOrFail($id);
+
+        $cartItem = Cart::search(function ($cartItem, $rowId) use ($id) {
+            return $cartItem->id === $id;
+        });
+
+        if ($cartItem->isNotEmpty()) {
+
+            return response()->json(['error' => 'This Product Has Already Added']);
+        }
+
+        if ($product->discount_price == null) {
+
+            Cart::add([
+
+                'id'      => $id,
+
+                'name'    => $product->name,
+                'qty'     => 1,
+                'price'   => $product->selling_price,
+                'weight'  => 1,
+
+                'options' => [
+                    'image' => $product->image,
+                    // 'color' => $request->color,
+                ],
+
+            ]);
+
+            return response()->json(['success' => 'Successfully Added on Your Cart']);
+        } else {
+
+            Cart::add([
+
+                'id'      => $id,
+
+                'name'    => $product->name,
+                'qty'     => 1,
+                'price'   => $product->discount_price,
+                'weight'  => 1,
+
+                'options' => [
+                    'image' => $product->image,
+                    // 'color' => $request->color,
+                ],
+
+            ]);
+
+            return response()->json(['success' => 'Successfully Added on Your Cart']);
+        }
+    }
+
 }

@@ -1,7 +1,7 @@
 @if ($latest_products->isNotEmpty())
     <section class="ps-section--latest">
         <div class="container">
-            <h3 class="ps-section__title">Latest products</h3>
+            <h3 class="ps-section__title">Latest Products</h3>
             <div class="ps-section__carousel">
                 <div class="owl-carousel" data-owl-auto="false" data-owl-loop="true" data-owl-speed="13000" data-owl-gap="0"
                     data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2" data-owl-item-sm="2"
@@ -28,21 +28,31 @@
                                         </a>
 
                                         <div class="ps-product__actions">
+
                                             <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
                                                 title="Wishlist"><a href="#"><i class="fa fa-heart-o"></i></a>
                                             </div>
+
                                             <div class="ps-product__item rotate" data-toggle="tooltip"
                                                 data-placement="left" title="Add to compare"><a href="#"
                                                     data-toggle="modal" data-target="#popupCompare"><i
                                                         class="fa fa-align-left"></i></a></div>
+
                                             <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
                                                 title="Quick view"><a href="#" data-toggle="modal"
                                                     data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+
                                             <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
-                                                title="Add to cart"><a href="#" data-toggle="modal"
-                                                    data-target="#popupAddcart"><i
-                                                        class="fa fa-shopping-basket"></i></a>
+                                                title="Add to cart">
+
+                                                <a type="submit" style="cursor:pointer;"
+                                                    class="add_to_cart_btn_product"
+                                                    data-product_id="{{ $latest_product->id }}">
+                                                    <i class="fa fa-shopping-basket"></i>
+                                                </a>
+
                                             </div>
+
                                         </div>
 
                                         @if ($latest_product->discount_price == null)
@@ -95,6 +105,7 @@
                                                 <li>Has HEALTH certificate</li>
                                             </ul>
                                         </div>
+
                                         <div class="ps-product__actions ps-product__group-mobile">
                                             <div class="ps-product__quantity">
                                                 <div class="def-number-input number-input safari_only">
@@ -108,6 +119,7 @@
                                                             class="icon-plus"></i></button>
                                                 </div>
                                             </div>
+
                                             <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning"
                                                     href="#" data-toggle="modal" data-target="#popupAddcart">Add
                                                     to cart</a></div>
