@@ -1,22 +1,13 @@
-<script src="{{ asset('frontend/assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/popper.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/slick.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/jquery.meanmenu.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/metisMenu.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/jquery.nice-select.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/ajax-form.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/waypoints.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/jquery.scrollUp.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/jquery.easypiechart.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/tilt.jquery.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/parallax.min.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/plugins.js') }}"></script>
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+<script src="{{ asset('frontend/assets/plugins/jquery.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/popper.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/bootstrap4/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/select2/dist/js/select2.full.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/jquery-bar-rating/dist/jquery.barrating.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/lightGallery/dist/js/lightgallery-all.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/slick/slick/slick.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/plugins/noUiSlider/nouislider.min.js') }}"></script>
+<!-- custom code-->
 <script src="{{ asset('frontend/assets/js/main.js') }}"></script>

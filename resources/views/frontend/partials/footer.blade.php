@@ -1,106 +1,122 @@
-<!--footer-area start-->
-<footer class="footer-area black-bg pos-rel pt-80 pb-50"
-    style="background-image:url(https://devsnews.com/template/enacare/enacare/assets/img/bg/02.png/)">
-    <div class="container">
-        <div class="row mb-20">
-            <div class="col-xl-3 col-lg-3 col-md-6  wow fadeInUp2 animated" data-wow-delay='.1s'>
-                <div class="footer__widget mb-30">
-                    <h5 class="semi-02-title mb-25">Quick Links</h5>
-                    <p>But I must explain to you how all this mistaken idea of denouncing pleaure and praising pain
-                        was born and will give you a complete account of</p>
-                    <div class="footer-log mt-25">
-                        <a href="index.html" class="footer-logo mb-30"><img src="assets/img/logo/footer-logo1.png"
-                                alt=""></a>
-                    </div>
+<footer class="ps-footer ps-footer--1">
+    <div class="ps-footer--top">
+        <div class="container">
+            <div class="row m-0">
+                <div class="col-12 col-sm-4 p-0">
+                    <p class="text-center"><a class="ps-footer__link" href="#"><i class="icon-wallet"></i>100% Money
+                            back</a></p>
                 </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp2 animated" data-wow-delay='.3s'>
-                <div class="footer__widget fot_abot mb-30 pl-40">
-                    <h5 class="semi-02-title mb-25">Quick Link</h5>
-                    <ul class="fot-list">
-                        <li><a href="#">Our Organization</a></li>
-                        <li><a href="#">Become a Volunteer</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Global Sponsors</a></li>
-                        <li><a href="#">Recent Events</a></li>
-                        <li><a href="#">Photo Gallery</a></li>
-                    </ul>
+                <div class="col-12 col-sm-4 p-0">
+                    <p class="text-center"><a class="ps-footer__link" href="#"><i
+                                class="icon-bag2"></i>Non-contact shipping</a></p>
                 </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp2 animated" data-wow-delay='.5s'>
-                <div class="footer__widget fot_abot mb-30 pl-40">
-                    <h5 class="semi-02-title mb-25">Quick Link</h5>
-                    <ul class="fot-list">
-                        <li><a href="#">Our Organization</a></li>
-                        <li><a href="#">Become a Volunteer</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Global Sponsors</a></li>
-                        <li><a href="#">Recent Events</a></li>
-                        <li><a href="#">Photo Gallery</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6  wow fadeInUp2 animated" data-wow-delay='.7s'>
-                <div class="footer__widget fot_abot mb-25">
-                    <h5 class="semi-02-title mb-25">Photo Gallery</h5>
-                    <div class="insta-feed">
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/01.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/02.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/03.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/04.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/05.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/06.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/07.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/08.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                        <a class="insta" href="#">
-                            <img src="assets/img/instagram/09.jpg" alt="">
-                            <span><i class="far fa-plus"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!--scroll-target-btn-->
-        <!-- <a href="#top-menu" class="scroll-target"><i class="far fa-arrow-up"></i></a> -->
-        <!--scroll-target-btn-->
-        <div class="copy-right-area copy-area-02 pt-30">
-            <div class="row align-items-center">
-                <div class="col-xl-12">
-                    <div class="copyright text-center">
-                        <p>Copyright © 2024, <span>Project</span>. Theme Developed by <a href="#">Ashik</a>
-                        </p>
-                    </div>
+                <div class="col-12 col-sm-4 p-0">
+                    <p class="text-center"><a class="ps-footer__link" href="#"><i class="icon-truck"></i>Free
+                            delivery for order over $200</a></p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="ps-footer__middle">
+            <div class="row">
+                <div class="col-12 col-md-7">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="ps-footer--address">
+                                <div class="ps-logo"><a href="index.html"> <img src="img/sticky-logo.png" alt><img
+                                            class="logo-white" src="img/logo-white.png" alt><img class="logo-black"
+                                            src="img/Logo-black.png" alt><img class="logo-white-all"
+                                            src="img/logo-white1.png" alt><img class="logo-green"
+                                            src="img/logo-green.png" alt></a></div>
+                                <div class="ps-footer__title">Our store</div>
+                                <p>1487 Rocky Horse Carrefour<br>Arlington, TX 16819</p>
+                                <p><a target="_blank"
+                                        href="https://www.google.com/maps/place/Arlington,+TX,+USA/@32.701968,-97.2054529,12z/data=!3m1!4b1!4m8!1m2!2m1!1s1487+Rocky+Horse+Carrefour+Arlington,+TX+16819!3m4!1s0x864e62d2e40898d3:0xb5ef6ac1fa05351!8m2!3d32.735687!4d-97.1080656">Show
+                                        on map</a></p>
+                                <ul class="ps-social">
+                                    <li><a class="ps-social__link facebook" href="#"><i class="fa fa-facebook">
+                                            </i><span class="ps-tooltip">Facebook</span></a></li>
+                                    <li><a class="ps-social__link instagram" href="#"><i
+                                                class="fa fa-instagram"></i><span
+                                                class="ps-tooltip">Instagram</span></a></li>
+                                    <li><a class="ps-social__link youtube" href="#"><i
+                                                class="fa fa-youtube-play"></i><span
+                                                class="ps-tooltip">Youtube</span></a></li>
+                                    <li><a class="ps-social__link pinterest" href="#"><i
+                                                class="fa fa-pinterest-p"></i><span
+                                                class="ps-tooltip">Pinterest</span></a></li>
+                                    <li><a class="ps-social__link linkedin" href="#"><i
+                                                class="fa fa-linkedin"></i><span class="ps-tooltip">Linkedin</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <div class="ps-footer--contact">
+                                <h5 class="ps-footer__title">Need help</h5>
+                                <div class="ps-footer__fax"><i class="icon-telephone"></i>0020 500 – MYMEDI – 000</div>
+                                <p class="ps-footer__work">Monday – Friday: 9:00-20:00<br>Saturday: 11:00 – 15:00</p>
+                                <hr>
+                                <p><a class="ps-footer__email"
+                                        href="https://nouthemes.net/cdn-cgi/l/email-protection#f99a96978d989a8db99c81989489959cd79a9694">
+                                        <i class="icon-envelope"></i><span class="__cf_email__"
+                                            data-cfemail="88ebe7e6fce9ebfcc8edf0e9e5f8e4eda6ebe7e5">[email&#160;protected]</span>
+                                    </a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            <div class="ps-footer--block">
+                                <h5 class="ps-block__title">Information</h5>
+                                <ul class="ps-block__list">
+                                    <li><a href="about-us.html">About us</a></li>
+                                    <li><a href="#">Delivery information</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Sales</a></li>
+                                    <li><a href="#">Terms &amp; Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="ps-footer--block">
+                                <h5 class="ps-block__title">Account</h5>
+                                <ul class="ps-block__list">
+                                    <li><a href="#">My account</a></li>
+                                    <li><a href="#">My orders</a></li>
+                                    <li><a href="#">Returns</a></li>
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="ps-footer--block">
+                                <h5 class="ps-block__title">Store</h5>
+                                <ul class="ps-block__list">
+                                    <li><a href="#">Affiliate</a></li>
+                                    <li><a href="#">Bestsellers</a></li>
+                                    <li><a href="#">Discount</a></li>
+                                    <li><a href="#">Latest products</a></li>
+                                    <li><a href="#">Sale</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ps-footer--bottom">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <p>Copyright © 2021 Mymedi. All Rights Reserved</p>
+                </div>
+                <div class="col-12 col-md-6 text-right"><img src="img/payment.png" alt><img class="payment-light"
+                        src="img/payment-light.png" alt></div>
+            </div>
+        </div>
+    </div>
 </footer>
-<!--footer-area end-->

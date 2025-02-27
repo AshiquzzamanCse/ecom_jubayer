@@ -166,102 +166,6 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      */
 
-    // public function update(Request $request, string $id)
-    // {
-    //     $item = product::findOrFail($id);
-
-    //     // Define upload paths
-    //     $uploadedFiles = [];
-    //     $multiImages = [];
-
-    //     // Single image handling
-    //     $files = [
-    //         'image' => $request->file('image'),
-    //         'multi_image' => $request->file('multi_image'), // Multi-image files
-    //     ];
-
-    //     // Handle single image upload
-    //     foreach (['image'] as $key) {
-    //         $file = $files[$key];
-
-    //         if ($file) {
-    //             // Define file path for single image
-    //             $filePath = 'product/' . $key;
-    //             $oldFile = $item->$key ?? null;
-
-    //             // Delete old image if it exists
-    //             if ($oldFile) {
-    //                 Storage::delete("public/" . $oldFile);
-    //             }
-
-    //             // Upload the new file
-    //             $uploadedFiles[$key] = newUpload($file, $filePath);
-    //             if ($uploadedFiles[$key]['status'] === 0) {
-    //                 return redirect()->back()->with('error', $uploadedFiles[$key]['error_message']);
-    //             }
-    //         } else {
-    //             // If no new file is uploaded, retain old file path
-    //             $uploadedFiles[$key] = ['status' => 0];
-    //         }
-    //     }
-
-    //     // Handle multi-image upload
-    //     if ($request->hasFile('multi_image')) {
-    //         // Handle each specific multi-image (we assume each multi-image has an 'id' in the request)
-    //         foreach ($request->file('multi_image') as $index => $file) {
-    //             $multiImageId = $request->input("multi_image_id.{$index}"); // Get the multi-image ID from the input
-    //             if ($multiImageId) {
-    //                 // Find the existing multi-image entry by ID
-    //                 $existingMultiImage = MultiImage::where('id', $multiImageId)->where('product_id', $item->id)->first();
-
-    //                 if ($existingMultiImage) {
-    //                     // Delete the old file from storage
-    //                     Storage::delete("public/" . $existingMultiImage->multi_image);
-
-    //                     // Upload the new file and update the specific multi-image entry
-    //                     $filePath = 'product/multi_image';
-    //                     $uploadResult = newUpload($file, $filePath);
-
-    //                     if ($uploadResult['status'] === 0) {
-    //                         return redirect()->back()->with('error', $uploadResult['error_message']);
-    //                     }
-
-    //                     // Update the multi-image record with the new file path
-    //                     $existingMultiImage->update([
-    //                         'multi_image' => $uploadResult['file_path'],
-    //                     ]);
-    //                 }
-    //             } else {
-    //                 // If no multi-image ID is provided, it's treated as a new multi-image
-    //                 $filePath = 'product/multi_image';
-    //                 $uploadResult = newUpload($file, $filePath);
-
-    //                 if ($uploadResult['status'] === 0) {
-    //                     return redirect()->back()->with('error', $uploadResult['error_message']);
-    //                 }
-
-    //                 // Save the new multi-image record in the database
-    //                 MultiImage::create([
-    //                     'product_id' => $item->id,
-    //                     'multi_image' => $uploadResult['file_path'],
-    //                 ]);
-    //             }
-    //         }
-    //     }
-
-    //     // Update the product data with new or existing values
-    //     $item->update([
-    //         'name' => $request->name,
-    //         'short_descp' => $request->short_descp,
-    //         'long_descp' => $request->long_descp,
-    //         'status' => $request->status,
-    //         'image' => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : $item->image,
-    //     ]);
-
-    //     // Return to the product index page with a success message
-    //     return redirect()->route('admin.product.index')->with('success', 'Data Updated Successfully!');
-    // }
-
     public function update(Request $request, string $id)
     {
         $item = Product::findOrFail($id);
@@ -360,11 +264,32 @@ class ProductController extends Controller
 
         // Update the product data with new or existing values
         $item->update([
-            'name'        => $request->name,
-            'short_descp' => $request->short_descp,
-            'long_descp'  => $request->long_descp,
-            'status'      => $request->status,
-            'image'       => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : $item->image,
+
+            'name'           => $request->name,
+            'short_descp'    => $request->short_descp,
+            'long_descp'     => $request->long_descp,
+
+            'specification'  => $request->specification,
+            'assecrioes'     => $request->assecrioes,
+            'brand_id'       => $request->brand_id,
+            'category_id'    => $request->category_id,
+            'subcategory_id' => $request->subcategory_id,
+
+            'code'           => $request->code,
+            'qty'            => $request->qty,
+            'selling_price'  => $request->selling_price,
+            'discount_price' => $request->discount_price,
+            'size'           => $request->size,
+            'color'          => $request->color,
+            'stock'          => $request->stock,
+            'hot_deal'       => $request->hot_deal,
+            'featured'       => $request->featured,
+            'best_seeling'   => $request->best_seeling,
+            'new'            => $request->new,
+
+            'status'         => $request->status,
+
+            'image'          => $uploadedFiles['image']['status'] == 1 ? $uploadedFiles['image']['file_path'] : $item->image,
         ]);
 
         // Return to the product index page with a success message
@@ -399,6 +324,6 @@ class ProductController extends Controller
         $product->delete();
 
         // Redirect with a success message
-        return redirect()->route('admin.product.index')->with('success', 'product deleted successfully!');
+        return redirect()->route('admin.product.index')->with('success', 'Product deleted successfully!');
     }
 }

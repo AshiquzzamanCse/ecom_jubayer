@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Banner;
 use App\Models\Contact;
-use App\Models\MultiImage;
-use App\Models\Project;
 use App\Models\Team;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -19,30 +16,29 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $banner = Banner::where('status', 'active')->latest('id')->first();
-        $about = About::where('status', 'active')->latest('id')->first();
-        $teams = Team::where('status', 'active')->latest()->limit('3')->get();
-        $projects = Project::where('status', 'active')->latest()->limit('4')->get();
+        $banner       = Banner::where('status', 'active')->latest('id')->first();
+        $about        = About::where('status', 'active')->latest('id')->first();
+        $teams        = Team::where('status', 'active')->latest()->limit('3')->get();
         $testimonials = Testimonial::where('status', 'active')->latest()->limit('5')->get();
 
-        return view('frontend.index', compact('banner', 'about', 'teams', 'projects', 'testimonials'));
+        return view('frontend.index', compact('banner', 'about', 'teams', 'testimonials'));
     }
 
     //All Team
-    public function allTeam()
-    {
-        $teams = Team::where('status', 'active')->latest()->get();
-        return view('frontend.pages.allteam', compact('teams'));
-    }
+    // public function allTeam()
+    // {
+    //     $teams = Team::where('status', 'active')->latest()->get();
+    //     return view('frontend.pages.allteam', compact('teams'));
+    // }
 
     //project Show
-    public function projectShow($slug)
-    {
-        $project = Project::where('slug', $slug)->firstOrFail();
-        $multiImages = MultiImage::where('project_id', $project->id)->get();
+    // public function projectShow($slug)
+    // {
+    //     // $project = Project::where('slug', $slug)->firstOrFail();
+    //     $multiImages = MultiImage::where('project_id', $project->id)->get();
 
-        return view('frontend.pages.project_show', compact('project', 'multiImages'));
-    }
+    //     return view('frontend.pages.project_show', compact('project', 'multiImages'));
+    // }
 
     //All Contact
     public function contact()
@@ -55,9 +51,9 @@ class FrontendController extends Controller
     {
         // Validate the incoming request data
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:150',
-            'email' => 'required|email|max:150',
-            'phone' => 'nullable|string|max:20',
+            'name'    => 'required|string|max:150',
+            'email'   => 'required|email|max:150',
+            'phone'   => 'nullable|string|max:20',
             'subject' => 'required|string',
             'message' => 'required|string|max:1200',
             // 'g-recaptcha-response' => 'required|captcha', // Validate reCAPTCHA
@@ -72,22 +68,22 @@ class FrontendController extends Controller
         DB::beginTransaction();
 
         try {
-            // Generate a unique message code
+                                 // Generate a unique message code
             $typePrefix = 'MSG'; // Adjust this as needed
-            $today = date('dmy');
-            $lastCode = Contact::where('code', 'like', $typePrefix . '-' . $today . '%')
+            $today      = date('dmy');
+            $lastCode   = Contact::where('code', 'like', $typePrefix . '-' . $today . '%')
                 ->orderBy('id', 'desc')
                 ->first();
 
             $newNumber = $lastCode ? (int) explode('-', $lastCode->code)[2] + 1 : 1;
-            $code = $typePrefix . '-' . $today . '-' . $newNumber;
+            $code      = $typePrefix . '-' . $today . '-' . $newNumber;
 
             // Create a new contact object
             $contact = new Contact([
-                'code' => $code,
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
+                'code'    => $code,
+                'name'    => $request->name,
+                'email'   => $request->email,
+                'phone'   => $request->phone,
                 'subject' => $request->subject,
                 'message' => $request->message,
             ]);

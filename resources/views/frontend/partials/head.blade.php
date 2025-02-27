@@ -1,25 +1,33 @@
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="author" content="">
+    <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Donation</title>
-    <!-- <link rel="manifest" href="https://devsnews.com/template/enacare/enacare/site.webmanifest/">
-    <link rel="shortcut icon" type="image/x-icon" href="https://devsnews.com/template/enacare/enacare/assets/img/favicon.ico/"> -->
-    <!-- Place favicon.ico in the root directory -->
+    <link href="img/favicon.png" rel="apple-touch-icon-precomposed">
+    <link href="img/favicon.png" rel="shortcut icon" type="image/png">
 
-    <!-- CSS here -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/font.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/metisMenu.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/fonts/Linearicons/Font/demo-files/demo.css') }}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:400,500,600,700&amp;display=swap&amp;ver=1607580870">
+
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/bootstrap4/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/owl-carousel/assets/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/slick/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/lightGallery/dist/css/lightgallery.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/lightGallery/dist/css/lightgallery.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/noUiSlider/nouislider.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/home-1.css') }}">
+
+    <title>Ecom Jubayer</title>
 </head>
