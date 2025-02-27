@@ -77,9 +77,12 @@
                         </div>
                     </li>
                 </ul>
-                <div class="ps-language-currency"><a class="ps-dropdown-value" href="javascript:void(0);"
+
+                {{-- <div class="ps-language-currency"><a class="ps-dropdown-value" href="javascript:void(0);"
                         data-toggle="modal" data-target="#popupLanguage">English</a><a class="ps-dropdown-value"
-                        href="javascript:void(0);" data-toggle="modal" data-target="#popupCurrency">USD</a></div>
+                        href="javascript:void(0);" data-toggle="modal" data-target="#popupCurrency">USD</a>
+                </div> --}}
+
                 <div class="ps-header__search">
                     <form action="https://nouthemes.net/html/mymedi/do_action" method="post">
                         <div class="ps-search-table">
@@ -291,7 +294,8 @@
 <header class="ps-header ps-header--1 ps-header--mobile">
     <div class="ps-noti">
         <div class="container">
-            <p class="m-0">Due to the <strong>COVID 19 </strong>epidemic, orders may be processed with a slight delay</p>
+            <p class="m-0">Due to the <strong>COVID 19 </strong>epidemic, orders may be processed with a slight
+                delay</p>
         </div><a class="ps-noti__close"><i class="icon-cross"></i></a>
     </div>
     <div class="ps-header__middle">

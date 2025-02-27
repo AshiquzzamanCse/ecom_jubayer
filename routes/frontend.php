@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 //HomePage
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
+//Product Details
+Route::get('/product/{slug}', [FrontendController::class, 'productDetails'])->name('product.details');
+
 //Team Section
 Route::get('/team', [FrontendController::class, 'allTeam'])->name('all.team');
 //Project Show

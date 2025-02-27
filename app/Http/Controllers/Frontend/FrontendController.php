@@ -1,35 +1,49 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Team;
+use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Banner;
-use App\Models\Contact;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Contact;
+use App\Models\MultiImage;
+use App\Models\Product;
+use App\Models\Team;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        $banners         = Banner::where('status', 'active')->latest()->get();
-        $categorys       = Category::where('status', 'active')->latest()->limit(7)->get();
-        $latest_products = Product::where('status','active')->latest('id')->limit(20)->get();
-        $hot_deal_products = Product::where('status','active')->where('hot_deal',1)->limit(20)->get();
-        $featured_products = Product::where('status','active')->where('featured',1)->limit(10)->get();
-
+        $banners           = Banner::where('status', 'active')->latest()->get();
+        $categorys         = Category::where('status', 'active')->latest()->limit(7)->get();
+        $latest_products   = Product::where('status', 'active')->latest('id')->limit(20)->get();
+        $hot_deal_products = Product::where('status', 'active')->where('hot_deal', 1)->limit(20)->get();
+        $featured_products = Product::where('status', 'active')->where('featured', 1)->limit(10)->get();
 
         $about        = About::where('status', 'active')->latest('id')->first();
         $teams        = Team::where('status', 'active')->latest()->limit('3')->get();
         $testimonials = Testimonial::where('status', 'active')->latest()->limit('5')->get();
 
-        return view('frontend.index', compact('banners', 'about', 'teams', 'testimonials','categorys','latest_products','hot_deal_products','featured_products'));
+        return view('frontend.index', compact('banners', 'about', 'teams', 'testimonials', 'categorys', 'latest_products', 'hot_deal_products', 'featured_products'));
+    }
+
+    public function productDetails($slug)
+    {
+        // Fetch the product by its slug
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        // Fetch associated images for the product using the product's id
+        $multiImages = MultiImage::where('product_id', $product->id)->get();
+        $sizes = explode(',', $product->size);
+        $colors = explode(',', $product->color);
+
+        // Pass the product and the images to the view
+        return view('frontend.pages.product.product_details', compact('product', 'multiImages','sizes','colors'));
     }
 
     //All Team

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\HomePage;
 use App\Models\Meta;
 use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
@@ -29,11 +30,17 @@ class AppServiceProvider extends ServiceProvider
     {
 
         View::share('setting', null);
+        View::share('homepage', null);
+        View::share('meta', null);
 
         try {
             // Check for table existence and set actual values
             if (Schema::hasTable('settings')) {
                 View::share('setting', Setting::first());
+            }
+
+            if (Schema::hasTable('homepages')) {
+                View::share('homepage', HomePage::first());
             }
 
             if (Schema::hasTable('metas')) {
