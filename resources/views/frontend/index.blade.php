@@ -210,31 +210,7 @@
             </div>
             <section class="ps-section--deals">
                 <div class="ps-section__header">
-                    <h3 class="ps-section__title">Best Deals of the week!</h3>
-                    <div class="ps-countdown">
-                        <div class="ps-countdown__content">
-                            <div class="ps-countdown__block ps-countdown__days">
-                                <div class="ps-countdown__number"><span class="first-1st">0</span><span
-                                        class="first">0</span><span class="last">0</span></div>
-                                <div class="ps-countdown__ref">Days</div>
-                            </div>
-                            <div class="ps-countdown__block ps-countdown__hours">
-                                <div class="ps-countdown__number"><span class="first">0</span><span
-                                        class="last">0</span></div>
-                                <div class="ps-countdown__ref">Hours</div>
-                            </div>
-                            <div class="ps-countdown__block ps-countdown__minutes">
-                                <div class="ps-countdown__number"><span class="first">0</span><span
-                                        class="last">0</span></div>
-                                <div class="ps-countdown__ref">Mins</div>
-                            </div>
-                            <div class="ps-countdown__block ps-countdown__seconds">
-                                <div class="ps-countdown__number"><span class="first">0</span><span
-                                        class="last">0</span></div>
-                                <div class="ps-countdown__ref">Secs </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="ps-section__title">Best Deals of the Week!</h3>
                 </div>
                 <div class="ps-section__carousel">
                     <div class="owl-carousel" data-owl-auto="false" data-owl-loop="true" data-owl-speed="13000"
