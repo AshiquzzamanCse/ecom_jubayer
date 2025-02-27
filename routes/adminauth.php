@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\MetaController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
@@ -149,7 +150,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::resources(
         [
             'banner'      => BannerController::class,
-            'project'     => ProjectController::class,
+            // 'project'     => ProjectController::class,
+            'product'     => ProductController::class,
             'about'       => AboutController::class,
 
             'team'        => TeamController::class,
@@ -178,3 +180,6 @@ Route::controller(CouponController::class)->group(function () {
     Route::post('/update/coupon', 'UpdateCoupon')->name('update.coupon');
     Route::get('/delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
 });
+
+//SubCategory Load
+Route::get('/get-subcategories/{category_id}', [ProductController::class, 'getSubcategories']);

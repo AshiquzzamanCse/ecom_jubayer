@@ -53,7 +53,7 @@
                     {{-- @endif --}}
 
                     {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
-                    <li> <a href="{{ route('admin.project.index') }}"><i class='bx bx-radio-circle'></i>Project</a>
+                    <li> <a href="{{ route('admin.product.index') }}"><i class='bx bx-radio-circle'></i>Product</a>
                     </li>
                     {{-- @endif --}}
 
@@ -90,7 +90,7 @@
             {{-- Frontend Section --}}
 
             {{-- Other Section --}}
-            
+
             <li>
                 <a href="{{ route('admin.settings.index') }}">
                     <div class="parent-icon"><i class="bx bx-message-square-edit"></i>
@@ -124,7 +124,7 @@
             </li>
             {{-- Management Section --}}
 
-            
+
 
             {{-- Hr & Admin Section  --}}
             {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
@@ -152,7 +152,7 @@
 
             {{-- Hr & Admin Section  --}}
 
-            
+
 
             {{-- Role & Permission  --}}
             {{-- @if (Auth::guard('admin')->user()->can('role.menu')) --}}
@@ -180,7 +180,7 @@
             {{-- Role & Permission  --}}
 
 
-            
+
 
         </ul>
         <!--end navigation-->

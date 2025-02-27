@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class OrderItem extends Model
 {
-    use HasFactory,HasSlug;
-    protected $slugSourceColumn = 'name';
+    use HasFactory;
 
     protected $guarded = [];
 }
