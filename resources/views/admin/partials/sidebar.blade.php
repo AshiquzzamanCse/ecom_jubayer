@@ -92,6 +92,14 @@
             {{-- Other Section --}}
 
             <li>
+                <a href="{{ route('admin.homepages.index') }}">
+                    <div class="parent-icon"><i class="bx bx-message-square-edit"></i>
+                    </div>
+                    <div class="menu-title">HomePage</div>
+                </a>
+            </li>
+
+            <li>
                 <a href="{{ route('admin.settings.index') }}">
                     <div class="parent-icon"><i class="bx bx-message-square-edit"></i>
                     </div>

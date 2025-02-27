@@ -21,13 +21,15 @@ class FrontendController extends Controller
         $banners         = Banner::where('status', 'active')->latest()->get();
         $categorys       = Category::where('status', 'active')->latest()->limit(7)->get();
         $latest_products = Product::where('status','active')->latest('id')->limit(20)->get();
+        $hot_deal_products = Product::where('status','active')->where('hot_deal',1)->limit(20)->get();
+        $featured_products = Product::where('status','active')->where('featured',1)->limit(10)->get();
 
 
         $about        = About::where('status', 'active')->latest('id')->first();
         $teams        = Team::where('status', 'active')->latest()->limit('3')->get();
         $testimonials = Testimonial::where('status', 'active')->latest()->limit('5')->get();
 
-        return view('frontend.index', compact('banners', 'about', 'teams', 'testimonials','categorys','latest_products'));
+        return view('frontend.index', compact('banners', 'about', 'teams', 'testimonials','categorys','latest_products','hot_deal_products','featured_products'));
     }
 
     //All Team

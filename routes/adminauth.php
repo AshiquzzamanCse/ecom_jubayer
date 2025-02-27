@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminAuth\PasswordResetLinkController;
 use App\Http\Controllers\AdminAuth\VerifyEmailController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
@@ -18,7 +19,6 @@ use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\MetaController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -135,6 +135,10 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     //Setting Section
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::put('/settings', [SettingController::class, 'updateOrcreateSetting'])->name('settings.updateOrCreate');
+
+    //Hompage Section
+    Route::get('/homepages', [AdminHomePageController::class, 'index'])->name('homepages.index');
+    Route::put('/homepages', [AdminHomePageController::class, 'updateOrcreateHomePage'])->name('homepages.updateOrCreate');
 
     //Meta Section
     Route::get('/meta', [MetaController::class, 'indexMeta'])->name('meta.indexMeta');
