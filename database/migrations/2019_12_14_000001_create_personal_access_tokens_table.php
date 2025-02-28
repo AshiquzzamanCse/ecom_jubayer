@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
             $table->id();
-            $table->morphs('tokenable'); // This creates `tokenable_type` and `tokenable_id`
+            $table->morphs('tokenable'); // Creates tokenable_type and tokenable_id
             $table->string('name');
             $table->string('token', 64)->unique();
             $table->text('abilities')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // After table creation, we modify the index length of `tokenable_type`
+        // Modify the index length for tokenable_type to 191 characters
         Schema::table('personal_access_tokens', function (Blueprint $table) {
             $table->index(['tokenable_type', 'tokenable_id'], 'personal_access_tokens_tokenable_type_tokenable_id_index', ['length' => ['tokenable_type' => 191]]);
         });
