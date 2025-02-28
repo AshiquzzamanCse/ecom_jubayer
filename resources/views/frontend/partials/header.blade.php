@@ -206,7 +206,7 @@
 
                         <li class="has-mega-menu"><a href="category-list.html">Home</a></li>
 
-                        <li class="has-mega-menu"><a href="#"> Pages<span class="sub-toggle"><i
+                        {{-- <li class="has-mega-menu"><a href="#"> Pages<span class="sub-toggle"><i
                                         class="fa fa-chevron-down"></i></span></a>
                             <div class="mega-menu">
                                 <div class="container">
@@ -264,38 +264,13 @@
                                                 <li><a href="blog-post2.html">Blog post 2</a></li>
                                             </ul>
                                         </div>
-                                        <div class="mega-menu__column">
-                                            <h4>Home</h4>
-                                            <ul class="sub-menu--mega">
-                                                <li><a href="index.html">Home 01</a></li>
-                                                <li><a href="home2.html">Home 02</a></li>
-                                                <li><a href="home3.html">Home 03</a></li>
-                                                <li><a href="home4.html">Home 04</a></li>
-                                                <li><a href="home5.html">Home 05</a></li>
-                                                <li><a href="home6.html">Home 06</a></li>
-                                                <li><a href="home7.html">Home 07</a></li>
-                                                <li><a href="home8.html">Home 08<span class="has-badge">New</span></a>
-                                                </li>
-                                                <li><a href="home9.html">Home 09<span class="has-badge">New</span></a>
-                                                </li>
-                                                <li><a href="home10.html">Home 10<span
-                                                            class="has-badge">New</span></a></li>
-                                                <li><a href="home11.html">Home 11<span
-                                                            class="has-badge">New</span></a></li>
-                                                <li><a href="home12.html">Home 12<span
-                                                            class="has-badge">New</span></a></li>
-                                                <li><a href="home13.html">Home 13<span
-                                                            class="has-badge">New</span></a></li>
-                                                <li><a href="home14.html">Home 14<span
-                                                            class="has-badge">New</span></a></li>
-                                                <li><a href="home15.html">Home 15<span
-                                                            class="has-badge">New</span></a></li>
-                                            </ul>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
+
+                        <li class="has-mega-menu"><a href="blog-sidebar1.html">Product</a></li>
 
                         <li class="has-mega-menu"><a href="blog-sidebar1.html">Blog</a></li>
 

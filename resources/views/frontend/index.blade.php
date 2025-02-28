@@ -1937,7 +1937,8 @@
                 <div class="ps-branch__box">
                     @foreach ($brands as $brand)
                         @if ($brand->image)
-                            <div class="ps-branch__item"><a href="javascript:;"><img src="{{ !empty($brand->image) ? url('storage/' . $brand->image) : 'https://ui-avatars.com/api/?name=' . urlencode($brand->name) }}"
+                            <div class="ps-branch__item"><a href="javascript:;"><img
+                                        src="{{ !empty($brand->image) ? url('storage/' . $brand->image) : 'https://ui-avatars.com/api/?name=' . urlencode($brand->name) }}"
                                         alt></a>
                             </div>
                         @endif
