@@ -43,6 +43,11 @@
                     {{-- @endif --}}
 
                     {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
+                    <li> <a href="{{ route('admin.brand.index') }}"><i class='bx bx-radio-circle'></i>Brand</a>
+                    </li>
+                    {{-- @endif --}}
+
+                    {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
                     <li> <a href="{{ route('admin.category.index') }}"><i class='bx bx-radio-circle'></i>Category</a>
                     </li>
                     {{-- @endif --}}

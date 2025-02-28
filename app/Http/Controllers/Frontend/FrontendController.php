@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Banner;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\MultiImage;
@@ -25,12 +26,13 @@ class FrontendController extends Controller
         $latest_products   = Product::where('status', 'active')->latest('id')->limit(20)->get();
         $hot_deal_products = Product::where('status', 'active')->where('hot_deal', 1)->limit(20)->get();
         $featured_products = Product::where('status', 'active')->where('featured', 1)->limit(10)->get();
+        $brands            = Brand::where('status', 'active')->where('status', 'active')->limit(8)->get();
 
         $about        = About::where('status', 'active')->latest('id')->first();
         $teams        = Team::where('status', 'active')->latest()->limit('3')->get();
         $testimonials = Testimonial::where('status', 'active')->latest()->limit('5')->get();
 
-        return view('frontend.index', compact('banners', 'about', 'teams', 'testimonials', 'categorys', 'latest_products', 'hot_deal_products', 'featured_products'));
+        return view('frontend.index', compact('banners', 'about', 'teams', 'testimonials', 'categorys', 'latest_products', 'hot_deal_products', 'featured_products','brands'));
     }
 
     public function productDetails($slug)
@@ -248,7 +250,7 @@ class FrontendController extends Controller
     //AddToWishlist
     public function AddToWishlist(Request $request)
     {
-        $id = $request->product_id;
+        $id      = $request->product_id;
         $product = Product::findOrFail($id);
 
         $cartItem = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($id) {
@@ -270,7 +272,7 @@ class FrontendController extends Controller
                 'weight'  => 1,
                 'options' => [
                     'image' => $product->image,
-                    'stock' => $product->stock
+                    'stock' => $product->stock,
                 ],
             ]);
         } else {
@@ -282,7 +284,7 @@ class FrontendController extends Controller
                 'weight'  => 1,
                 'options' => [
                     'image' => $product->image,
-                    'stock' => $product->stock
+                    'stock' => $product->stock,
                 ],
             ]);
         }
@@ -328,6 +330,5 @@ class FrontendController extends Controller
         Cart::instance('wishlist')->remove($rowId);
         return response()->json(['success' => 'Successfully Remove From Wishlist']);
     }
-
 
 }
