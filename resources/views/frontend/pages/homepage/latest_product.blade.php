@@ -29,8 +29,9 @@
 
                                         <div class="ps-product__actions">
 
-                                            <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
-                                                title="Wishlist"><a href="#"><i class="fa fa-heart-o"></i></a>
+                                            <div class="ps-product__item"><a class="add_to_wishlist"
+                                                    style="cursor: pointer;" data-product_id="{{ $latest_product->id }}" title="Wishlist"><i
+                                                        class="fa fa-heart-o"></i></a>
                                             </div>
 
                                             <div class="ps-product__item rotate" data-toggle="tooltip"

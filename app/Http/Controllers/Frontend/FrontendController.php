@@ -231,11 +231,12 @@ class FrontendController extends Controller
 
     public function viewCart()
     {
-        $carts   = Cart::content();
-        $cartQty = Cart::count();
-        $cartTotal = Cart::total();
+        $carts        = Cart::content();
+        $cartQty      = Cart::count();
+        $cartTotal    = Cart::total();
+        $cartSubTotal = Cart::subtotal();
 
-        return view('frontend.pages.cart.view_cart', compact('carts', 'cartQty','cartTotal'));
+        return view('frontend.pages.cart.view_cart', compact('carts', 'cartQty', 'cartTotal', 'cartSubTotal'));
     }
 
     public function RemoveMiniCart($rowId)
@@ -243,5 +244,90 @@ class FrontendController extends Controller
         Cart::remove($rowId);
         return response()->json(['success' => 'Product Removed From Cart']);
     }
+
+    //AddToWishlist
+    public function AddToWishlist(Request $request)
+    {
+        $id = $request->product_id;
+        $product = Product::findOrFail($id);
+
+        $cartItem = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($id) {
+            return $cartItem->id === $id;
+        });
+
+        if ($cartItem->isNotEmpty()) {
+            // Return an error if the product is already in the wishlist
+            return response()->json(['error' => 'This Product Has Already Been Added To Your Wishlist']);
+        }
+
+        // Add the product to the wishlist
+        if ($product->discount_price == null) {
+            Cart::instance('wishlist')->add([
+                'id'      => $id,
+                'name'    => $product->name,
+                'qty'     => 1,
+                'price'   => $product->selling_price,
+                'weight'  => 1,
+                'options' => [
+                    'image' => $product->image,
+                    'stock' => $product->stock
+                ],
+            ]);
+        } else {
+            Cart::instance('wishlist')->add([
+                'id'      => $id,
+                'name'    => $product->name,
+                'qty'     => 1,
+                'price'   => $product->discount_price,
+                'weight'  => 1,
+                'options' => [
+                    'image' => $product->image,
+                    'stock' => $product->stock
+                ],
+            ]);
+        }
+
+        // Get the updated wishlist count
+        $wishlistCount   = Cart::instance('wishlist')->count();
+        $cartWishlistQty = Cart::instance('wishlist')->count();
+
+        // Return the success message and the updated wishlist count
+        return response()->json([
+            'success'         => 'Successfully Added to Your Wishlist',
+            'wishlistCount'   => $wishlistCount,   // Send back the updated count
+            'cartWishlistQty' => $cartWishlistQty, // Send back the updated count
+        ]);
+    }
+
+    //WishlistProduct
+    public function WishlistProduct()
+    {
+        $data = [
+            'cartWishlists' => Cart::instance('wishlist')->content(),
+        ];
+        return view('frontend.pages.wishlist.view_wishlist', $data);
+    }
+
+    //GetWishlist
+    public function GetWishlist()
+    {
+        $cartWishlist    = Cart::instance('wishlist')->content(); // Limiting to 3 products
+        $cartWishlistQty = Cart::instance('wishlist')->count();
+        $cartTotal       = Cart::instance('wishlist')->total();
+
+        return response()->json([
+            'cartWishlist'    => $cartWishlist,
+            'cartWishlistQty' => $cartWishlistQty,
+            'cartTotal'       => $cartTotal,
+        ]);
+    }
+
+    //removeWishlist
+    public function removeWishlist($rowId)
+    {
+        Cart::instance('wishlist')->remove($rowId);
+        return response()->json(['success' => 'Successfully Remove From Wishlist']);
+    }
+
 
 }

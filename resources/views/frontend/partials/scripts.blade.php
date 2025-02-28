@@ -12,12 +12,13 @@
 <!-- custom code-->
 <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Notyf CSS -->
 <link href="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.js"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
 <script type="text/javascript">
     $.ajaxSetup({
@@ -100,6 +101,7 @@
         $.ajax({
             url: '/cart/remove/' + rowId, // Ensure this is the correct URL for your route
             type: 'GET', // or POST depending on your route definition
+
             success: function(response) {
                 if (response.success) {
                     // Show success toast notification
@@ -115,6 +117,155 @@
                 // Show error toast notification
                 notyf.error("Something went wrong. Please try again later.");
             }
+
         });
     });
 </script>
+
+
+{{-- =====================WishList Product All Code Start ============================ --}}
+
+{{-- Add Cart To WishList --}}
+<script>
+    $('.add_to_wishlist').click(function() {
+        var product_id = $(this).data('product_id');
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                product_id: product_id,
+            },
+            url: '/add-to-wishlist',
+            success: function(data) {
+                if ($.isEmptyObject(data.error)) {
+                    toastr.success(data.success, 'Success', {
+                        positionClass: 'toast-top-right',
+                        timeOut: 3000
+                    });
+
+                    // Update the wishlist count dynamically
+                    var wishlistCount = data
+                        .wishlistCount; // Get the updated count from the response
+                    $('#cartWishlistQty').text(
+                        wishlistCount); // Update the wishlist count in the DOM
+                } else {
+                    toastr.error(data.error, 'Error', {
+                        positionClass: 'toast-top-right',
+                        timeOut: 3000
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+{{-- Load Wishlist --}}
+<script>
+    function wishlist() {
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: '/get-wishlist',
+
+            success: function(response) {
+
+                $('#cartWishlistQty').text(response.cartWishlistQty);
+
+                var tableHtml = "";
+
+                if (response.cartWishlist.length === 0) {
+
+                } else {
+                    $.each(response.cartWishlist, function(key, value) {
+                        tableHtml +=
+
+                            ``;
+
+                    });
+
+                    $('#wishlistLink').show();
+                }
+
+                $('#wishlist').html(tableHtml);
+            }
+        });
+    }
+
+    wishlist();
+</script>
+
+{{-- Add Cart Wishlist --}}
+<script>
+    function addToCartWishlist(id) {
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            data: {
+                product_id: id // Make sure to pass product_id here
+            },
+            url: "/add-to-cart-wishlist/" + id, // Ensure the URL is correct
+
+            success: function(data) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
+                    });
+                } else {
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    });
+                }
+            }
+        });
+    }
+</script>
+
+{{-- Wishlist Remove --}}
+<script>
+    function wishlistRemove(rowId) {
+        $.ajax({
+            type: 'GET',
+            url: '/wishlist/product/remove/' + rowId,
+            dataType: 'json',
+            success: function(data) {
+                // After successful removal, redirect to another page
+                if ($.isEmptyObject(data.error)) {
+                    toastr.success(data.success, 'Success', {
+                        positionClass: 'toast-top-right',
+                        timeOut: 3000
+                    });
+
+                    // Redirect to wishlist page or any other URL
+                    window.location.href = '/wishlist-product'; // Change this URL to where you want to go
+                } else {
+                    toastr.error(data.error, 'Error', {
+                        positionClass: 'toast-top-right',
+                        timeOut: 3000
+                    });
+                }
+            },
+            error: function() {
+                toastr.error('There was an error processing your request.', 'Error', {
+                    positionClass: 'toast-top-right',
+                    timeOut: 3000
+                });
+            }
+        });
+    }
+</script>
+
+
+
+{{-- =====================Wishlist Product All Code End ============================== --}}

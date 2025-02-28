@@ -27,6 +27,12 @@ Route::controller(FrontendController::class)->group(function () {
 
     Route::get('/cart/remove/{rowId}','RemoveMiniCart')->name('cart.remove');
 
+    //Add To Wishlist
+    Route::post('/add-to-wishlist', 'AddToWishlist');
+    Route::get('/wishlist-product', 'WishlistProduct')->name('wishlist.product');
+    Route::get('/get-wishlist', 'GetWishlist');
+    Route::get('/wishlist/product/remove/{rowId}', 'removeWishlist');
+
 
 });
 

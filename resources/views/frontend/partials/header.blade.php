@@ -41,8 +41,12 @@
                         </div>
                     </li>
 
-                    <li><a class="ps-header__item" href="wishlist.html"><i class="fa fa-heart-o"></i><span
-                                class="badge">3</span></a></li>
+                    <li>
+                        <a class="ps-header__item" href="{{ route('wishlist.product') }}">
+                            <i class="fa fa-heart-o"></i>
+                            <span class="badge"  id="cartWishlistQty">0</span> <!-- Initial count is 0 -->
+                        </a>
+                    </li>
 
                     <li>
                         <a class="ps-header__item" href="{{route('view.cart')}}" id="cart-link">

@@ -118,7 +118,7 @@
 
                                             <td class="ps-product__thumbnail">
                                                 <a class="ps-product__image" href="">
-                                                    <figure><img src="{{ $cart->options->image }}" alt></figure>
+                                                    <figure><img src="{{ asset($cart->options->image) }}" alt></figure>
                                                 </a>
                                             </td>
                                             <td class="ps-product__name">
@@ -172,12 +172,12 @@
                         <div class="ps-shopping__box">
                             <div class="ps-shopping__row">
                                 <div class="ps-shopping__label">Subtotal</div>
-                                <div class="ps-shopping__price">Tk {{ $cartTotal }}</div>
+                                <div class="ps-shopping__price">Tk {{ $cartSubTotal }}</div>
                             </div>
 
                             <div class="ps-shopping__row">
                                 <div class="ps-shopping__label">Total</div>
-                                <div class="ps-shopping__price">Tk {{ $cartTotal }}</div>
+                                <div class="ps-shopping__price">Tk {{ $cartSubTotal }}</div>
                             </div>
 
                             <div class="ps-shopping__checkout">
