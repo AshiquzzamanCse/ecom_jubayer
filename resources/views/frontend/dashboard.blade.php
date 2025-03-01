@@ -25,7 +25,7 @@
         <div class="ps-search__content ps-search--mobile"><a class="ps-search__close" href="#" id="close-search"><i
                     class="icon-cross"></i></a>
             <h3>Search</h3>
-            <form action="https://nouthemes.net/html/mymedi/do_action" method="post">
+            <form action="" method="post">
                 <div class="ps-search-table">
                     <div class="input-group">
                         <input class="form-control ps-input" type="text" placeholder="Search for products">
@@ -245,7 +245,7 @@
                 </ul>
             </div>
             <div class="ps-menu__item">
-                <div class="ps-menu__contact">Need help? <strong>0020 500 - MYMEDI - 000</strong></div>
+                <div class="ps-menu__contact">Need help? <strong>0020 500 - 000</strong></div>
             </div>
         </div>
     </div>
