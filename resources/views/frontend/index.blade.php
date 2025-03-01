@@ -345,7 +345,7 @@
         </div>
 
         <section class="ps-section--reviews" data-background="{{asset('frontend/assets/img/roundbg.png')}}">
-            <h3 class="ps-section__title"> <img src="{{asset('frontend/assets/img/quote-icon.png')}}" alt>Latest Reviews</h3>
+            <h3 class="ps-section__title"> <img src="" alt>Latest Reviews</h3>
             <div class="ps-section__content">
                 <div class="owl-carousel" data-owl-auto="false" data-owl-loop="true" data-owl-speed="13000"
                     data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="1"
