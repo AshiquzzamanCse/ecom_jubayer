@@ -31,5 +31,5 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/home-1.css') }}">
 
-    <title>Ecom Jubayer</title>
+    <title>Ecommerce</title>
 </head>

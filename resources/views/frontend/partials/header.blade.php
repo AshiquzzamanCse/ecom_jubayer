@@ -9,7 +9,7 @@
 
     <div class="ps-header__top">
         <div class="container">
-            <div class="ps-header__text">Need help? <strong>0020 500 - MYMEDI - 000</strong></div>
+            <div class="ps-header__text">Need help? <strong>0020 500  - 000</strong></div>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
                     <li><a class="ps-header__item open-search" href="#"><i class="icon-magnifier"></i></a></li>
                     <li><a class="ps-header__item" href="#" id="login-modal"><i class="icon-user"></i></a>
                         <div class="ps-login--modal">
-                            <form method="get" action="https://nouthemes.net/html/mymedi/do_action">
+                            <form method="get" action="">
                                 <div class="form-group">
                                     <label>Username or Email Address</label>
                                     <input class="form-control" type="text">
@@ -155,7 +155,7 @@
                                     <div class="ps-product ps-product--horizontal">
                                         <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                 href="#">
-                                                <figure><img src="img/products/051.jpg" alt="alt" /></figure>
+                                                <figure><img src="" alt="alt" /></figure>
                                             </a></div>
                                         <div class="ps-product__content">
                                             <h5 class="ps-product__title"><a>3-Ply Ear-Loop Disposable Blue Face <span
@@ -173,7 +173,7 @@
                                     <div class="ps-product ps-product--horizontal">
                                         <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                 href="#">
-                                                <figure><img src="img/products/050.jpg" alt="alt" /></figure>
+                                                <figure><img src="" alt="alt" /></figure>
                                             </a></div>
                                         <div class="ps-product__content">
                                             <h5 class="ps-product__title"><a>Disposable Face <span
@@ -188,7 +188,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="ps-result__viewall"><a href="product-result.html">View all 5 results</a></div>
+                            <div class="ps-result__viewall"><a href="">View all 5 results</a></div>
                         </div>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
 
 
 
-                        <li class="has-mega-menu"><a href="category-list.html">Home</a></li>
+                        <li class="has-mega-menu"><a href="{{route('frontend.index')}}">Home</a></li>
 
                         {{-- <li class="has-mega-menu"><a href="#"> Pages<span class="sub-toggle"><i
                                         class="fa fa-chevron-down"></i></span></a>
@@ -270,16 +270,16 @@
                             </div>
                         </li> --}}
 
-                        <li class="has-mega-menu"><a href="blog-sidebar1.html">Product</a></li>
+                        <li class="has-mega-menu"><a href="">Product</a></li>
 
-                        <li class="has-mega-menu"><a href="blog-sidebar1.html">Blog</a></li>
+                        <li class="has-mega-menu"><a href="">Blog</a></li>
 
-                        <li class="has-mega-menu"><a href="contact-us.html">Contact</a></li>
+                        <li class="has-mega-menu"><a href="">Contact</a></li>
 
                     </ul>
                 </nav>
             </div>
-            <div class="ps-navigation__right">Need help? <strong>0020 500 - MYMEDI - 000</strong></div>
+            <div class="ps-navigation__right">Need help? <strong>0020 500  - 000</strong></div>
         </div>
     </div>
 </header>
