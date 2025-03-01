@@ -52,7 +52,7 @@
                 <div class="ps-search__item">
                     <div class="ps-product ps-product--horizontal">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="#">
-                                <figure><img src="img/products/033.jpg" alt="alt" /></figure>
+                                <figure><img src="" alt="alt" /></figure>
                             </a></div>
                         <div class="ps-product__content">
                             <h5 class="ps-product__title"><a>3 Layer Disposable Protective Face <span
