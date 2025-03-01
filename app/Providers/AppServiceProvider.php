@@ -1,17 +1,15 @@
 <?php
-
 namespace App\Providers;
 
 use App\Models\HomePage;
 use App\Models\Meta;
 use App\Models\Setting;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Schema;
-
-use Illuminate\Pagination\Paginator;
-
 use Exception;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
+use Log;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -46,12 +44,13 @@ class AppServiceProvider extends ServiceProvider
             if (Schema::hasTable('metas')) {
                 View::share('meta', Meta::first());
             }
-        } 
-        
-        catch (Exception $e) {
-            // Log the exception if needed
+        } catch (Exception $e) {
+            // Log the exception if needed for debugging
+            // Log::error('Error loading settings, homepage, or meta: ' . $e->getMessage());
         }
 
         Paginator::useBootstrap();
+
+        Schema::defaultStringLength(191);
     }
 }
