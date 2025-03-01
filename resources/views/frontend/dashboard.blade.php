@@ -37,7 +37,7 @@
                 <div class="ps-search__item">
                     <div class="ps-product ps-product--horizontal">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="#">
-                                <figure><img src="img/products/052.jpg" alt="alt" /></figure>
+                                <figure><img src="" alt="alt" /></figure>
                             </a></div>
                         <div class="ps-product__content">
                             <h5 class="ps-product__title"><a>3-layer <span class='hightlight'>mask</span> with an
@@ -68,7 +68,7 @@
                 <div class="ps-search__item">
                     <div class="ps-product ps-product--horizontal">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="#">
-                                <figure><img src="img/products/051.jpg" alt="alt" /></figure>
+                                <figure><img src="" alt="alt" /></figure>
                             </a></div>
                         <div class="ps-product__content">
                             <h5 class="ps-product__title"><a>3-Ply Ear-Loop Disposable Blue Face <span
@@ -84,7 +84,7 @@
                 <div class="ps-search__item">
                     <div class="ps-product ps-product--horizontal">
                         <div class="ps-product__thumbnail"><a class="ps-product__image" href="#">
-                                <figure><img src="img/products/050.jpg" alt="alt" /></figure>
+                                <figure><img src="" alt="alt" /></figure>
                             </a></div>
                         <div class="ps-product__content">
                             <h5 class="ps-product__title"><a>Disposable Face <span class='hightlight'>mask</span> for

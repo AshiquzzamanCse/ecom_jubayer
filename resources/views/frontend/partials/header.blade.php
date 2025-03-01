@@ -15,8 +15,8 @@
 
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href="index.html"> <img src="img/logo.png" alt><img class="sticky-logo"
-                        src="img/sticky-logo.png" alt></a></div><a class="ps-menu--sticky" href="#"><i
+            <div class="ps-logo"><a href=""> <img src="" alt><img class="sticky-logo"
+                        src="" alt></a></div><a class="ps-menu--sticky" href="#"><i
                     class="fa fa-bars"></i></a>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">
@@ -119,7 +119,7 @@
                                     <div class="ps-product ps-product--horizontal">
                                         <div class="ps-product__thumbnail"><a class="ps-product__image"
                                                 href="#">
-                                                <figure><img src="img/products/052.jpg" alt="alt" /></figure>
+                                                <figure><img src="" alt="alt" /></figure>
                                             </a></div>
                                         <div class="ps-product__content">
                                             <h5 class="ps-product__title"><a>3-layer <span
@@ -293,7 +293,7 @@
     </div>
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href="index.html"> <img src="img/mobile-logo.png" alt></a></div>
+            <div class="ps-logo"><a href="index.html"> <img src="" alt></a></div>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">
                     <li><a class="ps-header__item open-search" href="#"><i class="fa fa-search"></i></a></li>
