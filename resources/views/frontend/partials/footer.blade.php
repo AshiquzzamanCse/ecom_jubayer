@@ -24,15 +24,15 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <div class="ps-footer--address">
-                                <div class="ps-logo"><a href="index.html"> <img src="img/sticky-logo.png" alt><img
-                                            class="logo-white" src="img/logo-white.png" alt><img class="logo-black"
-                                            src="img/Logo-black.png" alt><img class="logo-white-all"
-                                            src="img/logo-white1.png" alt><img class="logo-green"
-                                            src="img/logo-green.png" alt></a></div>
+                                <div class="ps-logo"><a href="index.html"> <img src="" alt><img
+                                            class="logo-white" src="" alt><img class="logo-black"
+                                            src="" alt><img class="logo-white-all"
+                                            src="" alt><img class="logo-green"
+                                            src="" alt></a></div>
                                 <div class="ps-footer__title">Our store</div>
                                 <p>1487 Rocky Horse Carrefour<br>Arlington, TX 16819</p>
                                 <p><a target="_blank"
-                                        href="https://www.google.com/maps/place/Arlington,+TX,+USA/@32.701968,-97.2054529,12z/data=!3m1!4b1!4m8!1m2!2m1!1s1487+Rocky+Horse+Carrefour+Arlington,+TX+16819!3m4!1s0x864e62d2e40898d3:0xb5ef6ac1fa05351!8m2!3d32.735687!4d-97.1080656">Show
+                                        href="">Show
                                         on map</a></p>
                                 <ul class="ps-social">
                                     <li><a class="ps-social__link facebook" href="#"><i class="fa fa-facebook">
@@ -59,7 +59,7 @@
                                 <p class="ps-footer__work">Monday – Friday: 9:00-20:00<br>Saturday: 11:00 – 15:00</p>
                                 <hr>
                                 <p><a class="ps-footer__email"
-                                        href="https://nouthemes.net/cdn-cgi/l/email-protection#f99a96978d989a8db99c81989489959cd79a9694">
+                                        href="">
                                         <i class="icon-envelope"></i><span class="__cf_email__"
                                             data-cfemail="88ebe7e6fce9ebfcc8edf0e9e5f8e4eda6ebe7e5">[email&#160;protected]</span>
                                     </a></p>
@@ -114,8 +114,8 @@
                 <div class="col-12 col-md-6">
                     <p>Copyright © 2025 Ashiquzzaman. All Rights Reserved</p>
                 </div>
-                <div class="col-12 col-md-6 text-right"><img src="img/payment.png" alt><img class="payment-light"
-                        src="img/payment-light.png" alt></div>
+                <div class="col-12 col-md-6 text-right"><img src="" alt><img class="payment-light"
+                        src="" alt></div>
             </div>
         </div>
     </div>
