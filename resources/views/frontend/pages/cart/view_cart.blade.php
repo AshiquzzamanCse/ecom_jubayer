@@ -3,10 +3,9 @@
     <div class="ps-shopping">
         <div class="container">
             <ul class="ps-breadcrumb">
-                <li class="ps-breadcrumb__item"><a href="index.html">Home</a></li>
-                <li class="ps-breadcrumb__item active" aria-current="page">Shopping cart</li>
+                <li class="ps-breadcrumb__item"><a href="{{ route('frontend.index') }}">Home</a></li>
+                <li class="ps-breadcrumb__item active" aria-current="page">View Cart</li>
             </ul>
-            <h3 class="ps-shopping__title">Shopping cart<sup>(0)</sup></h3>
 
             <div class="ps-shopping__content">
 
@@ -96,7 +95,7 @@
                                 <thead>
                                     <tr>
                                         <th class="ps-product__remove"></th>
-                                        <th class="ps-product__thumbnail"></th>
+                                        <th class="ps-product__thumbnail">Image</th>
                                         <th class="ps-product__name">Product name</th>
                                         <th class="ps-product__meta">Unit price</th>
                                         <th class="ps-product__quantity">Quantity</th>
@@ -118,7 +117,8 @@
 
                                             <td class="ps-product__thumbnail">
                                                 <a class="ps-product__image" href="">
-                                                    <figure><img src="{{ asset($cart->options->image) }}" alt></figure>
+                                                    <figure><img src="{{ asset('storage/' . $cart->options->image) }}" alt>
+                                                    </figure>
                                                 </a>
                                             </td>
                                             <td class="ps-product__name">
@@ -126,29 +126,46 @@
                                             </td>
 
                                             <td class="ps-product__meta">
-                                                <span class="ps-product__price sale">Tk {{ $cart->price }}</span>
+                                                <span class="ps-product__price sale">$ {{ $cart->price }}</span>
                                             </td>
 
                                             <td class="ps-product__quantity">
                                                 <div class="def-number-input number-input safari_only">
-                                                    <button class="minus"
+
+                                                    {{-- <button class="minus"
                                                         onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                         <i class="icon-minus"></i>
+                                                    </button> --}}
+
+                                                    <button class="minus" id="{{ $cart->rowId }}"
+                                                        onclick="cartDecrement(this.id); this.parentNode.querySelector('input[type=number]').stepDown();">
+                                                        <i class="icon-minus"></i>
                                                     </button>
-                                                    <input class="quantity" min="0" name="quantity" value="1"
-                                                        type="number">
-                                                    <button class="plus"
+
+
+                                                    <input class="quantity" min="0" name=""
+                                                        value="{{ $cart->qty }}" type="number">
+
+                                                    {{-- <button class="plus"
                                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                         <i class="icon-plus"></i>
+                                                    </button> --}}
+
+                                                    <button class="plus" id="{{ $cart->rowId }}"
+                                                        onclick="cartIncrement(this.id); this.parentNode.querySelector('input[type=number]').stepUp();">
+                                                        <i class="icon-plus"></i>
                                                     </button>
+
+
                                                 </div>
                                             </td>
 
-                                            <td class="ps-product__subtotal">$77.65</td>
+                                            <td class="ps-product__subtotal">$ {{ $cart->price * $cart->qty}}</td>
+
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="6" style="text-align: center;">For Cart Is Empty</td>
+                                            <td colspan="6" style="text-align: center;">Your Cart Is Empty</td>
                                         </tr>
                                     @endforelse
 
@@ -162,7 +179,7 @@
                                 <input class="form-control ps-input" type="text" placeholder="Coupon code">
                                 <button class="ps-btn ps-btn--primary" type="button">Apply coupon</button>
                             </div>
-                            
+
                         </div> --}}
 
                     </div>
@@ -172,12 +189,12 @@
                         <div class="ps-shopping__box">
                             <div class="ps-shopping__row">
                                 <div class="ps-shopping__label">Subtotal</div>
-                                <div class="ps-shopping__price">Tk {{ $cartSubTotal }}</div>
+                                <div class="ps-shopping__price">$ {{ $cartSubTotal }}</div>
                             </div>
 
                             <div class="ps-shopping__row">
                                 <div class="ps-shopping__label">Total</div>
-                                <div class="ps-shopping__price">Tk {{ $cartSubTotal }}</div>
+                                <div class="ps-shopping__price">$ {{ $cartSubTotal }}</div>
                             </div>
 
                             <div class="ps-shopping__checkout">
@@ -191,8 +208,8 @@
 
 
                 </div>
-                
-                {{-- 
+
+                {{--
                 <section class="ps-section--latest">
                     <div class="container">
                         <h3 class="ps-section__title">You may be interested in…</h3>

@@ -2,22 +2,21 @@
 
     <div class="ps-noti">
         <div class="container">
-            <p class="m-0">Due to the <strong>COVID 19 </strong>epidemic, orders may be processed with a slight delay
+            <p class="m-0">Due to the <strong>Store</strong> epidemic, orders may be processed with a slight delay
             </p>
         </div><a class="ps-noti__close"><i class="icon-cross"></i></a>
     </div>
 
     <div class="ps-header__top">
         <div class="container">
-            <div class="ps-header__text">Need help? <strong>0020 500  - 000</strong></div>
+            <div class="ps-header__text">Need help? <strong>0020 500 - 000</strong></div>
         </div>
     </div>
 
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href=""> <img src="" alt><img class="sticky-logo"
-                        src="" alt></a></div><a class="ps-menu--sticky" href="#"><i
-                    class="fa fa-bars"></i></a>
+            <div class="ps-logo"><a href=""> <img src="" alt><img class="sticky-logo" src=""
+                        alt></a></div><a class="ps-menu--sticky" href="#"><i class="fa fa-bars"></i></a>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">
                     <li><a class="ps-header__item open-search" href="#"><i class="icon-magnifier"></i></a></li>
@@ -44,18 +43,18 @@
                     <li>
                         <a class="ps-header__item" href="{{ route('wishlist.product') }}">
                             <i class="fa fa-heart-o"></i>
-                            <span class="badge"  id="cartWishlistQty">0</span> <!-- Initial count is 0 -->
+                            <span class="badge" id="cartWishlistQty">0</span> <!-- Initial count is 0 -->
                         </a>
                     </li>
 
-                    <li>
-                        <a class="ps-header__item" href="{{route('view.cart')}}" id="cart-link">
+                    {{-- <li>
+                        <a class="ps-header__item" href="{{ route('view.cart') }}" id="cart-link">
                             <i class="icon-cart-empty"></i>
                             <span class="badge" id="cart-count">0</span> <!-- cart count -->
                         </a>
-                        
 
-                        {{-- <div class="ps-cart--mini">
+
+                        <div class="ps-cart--mini">
                             <ul class="ps-cart__items">
 
                                 <li class="ps-cart__item">
@@ -87,13 +86,35 @@
                             </ul>
 
                             <div class="ps-cart__total"><span>Subtotal </span><span>$399</span></div>
-                            
+
                             <div class="ps-cart__footer"><a class="ps-btn ps-btn--outline"
                                     href="shopping-cart.html">View Cart</a><a class="ps-btn ps-btn--warning"
                                     href="checkout.html">Checkout</a></div>
-                        </div> --}}
+                        </div>
+
+                    </li> --}}
+
+                    <li>
+
+                        <a class="ps-header__item" href="" id="cart-mini">
+                            <i class="icon-cart-empty"></i>
+                            <span class="badge" id="cartQty"></span>
+                        </a>
+
+                        <div class="ps-cart--mini">
+
+                            <div id="miniCart"></div>
+
+                            <div class="ps-cart__total"><span>Subtotal </span><span id="cartSubTotal"></span></div>
+
+                            <div class="ps-cart__footer">
+                                <a class="ps-btn ps-btn--outline" href="{{ route('view.cart') }}">View Cart</a>
+                                <a class="ps-btn ps-btn--warning" href="">Checkout</a>
+                            </div>
+
+                        </div>
                     </li>
-                    
+
                 </ul>
 
                 {{-- <div class="ps-language-currency"><a class="ps-dropdown-value" href="javascript:void(0);"
@@ -102,11 +123,10 @@
                 </div> --}}
 
                 <div class="ps-header__search">
-                    <form action="https://nouthemes.net/html/mymedi/do_action" method="post">
+                    <form action="" method="post">
                         <div class="ps-search-table">
                             <div class="input-group">
-                                <input class="form-control ps-input" type="text"
-                                    placeholder="Search for products">
+                                <input class="form-control ps-input" type="text" placeholder="Search for products">
                                 <div class="input-group-append"><a href="#"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
@@ -117,8 +137,7 @@
                             <div class="row m-0">
                                 <div class="col-12 col-lg-6">
                                     <div class="ps-product ps-product--horizontal">
-                                        <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                href="#">
+                                        <div class="ps-product__thumbnail"><a class="ps-product__image" href="#">
                                                 <figure><img src="" alt="alt" /></figure>
                                             </a></div>
                                         <div class="ps-product__content">
@@ -127,16 +146,14 @@
                                                     piece)</a></h5>
                                             <p class="ps-product__desc">Study history up to 30 days Up to 5 users
                                                 simultaneously Has HEALTH certificate</p>
-                                            <div class="ps-product__meta"><span
-                                                    class="ps-product__price">$38.24</span>
+                                            <div class="ps-product__meta"><span class="ps-product__price">$38.24</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <div class="ps-product ps-product--horizontal">
-                                        <div class="ps-product__thumbnail"><a class="ps-product__image"
-                                                href="#">
+                                        <div class="ps-product__thumbnail"><a class="ps-product__image" href="#">
                                                 <figure><img src="" alt="alt" /></figure>
                                             </a></div>
                                         <div class="ps-product__content">
@@ -192,6 +209,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -204,7 +222,7 @@
 
 
 
-                        <li class="has-mega-menu"><a href="{{route('frontend.index')}}">Home</a></li>
+                        <li class="has-mega-menu"><a href="{{ route('frontend.index') }}">Home</a></li>
 
                         {{-- <li class="has-mega-menu"><a href="#"> Pages<span class="sub-toggle"><i
                                         class="fa fa-chevron-down"></i></span></a>
@@ -264,22 +282,22 @@
                                                 <li><a href="blog-post2.html">Blog post 2</a></li>
                                             </ul>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </li> --}}
 
-                        <li class="has-mega-menu"><a href="">Product</a></li>
+                        <li class="has-mega-menu"><a href="{{ route('all.product') }}">Product</a></li>
 
-                        <li class="has-mega-menu"><a href="">Blog</a></li>
+                        <li class="has-mega-menu"><a href="{{ route('bestselling.product') }}">Best Selling</a></li>
 
                         <li class="has-mega-menu"><a href="">Contact</a></li>
 
                     </ul>
                 </nav>
             </div>
-            <div class="ps-navigation__right">Need help? <strong>0020 500  - 000</strong></div>
+            <div class="ps-navigation__right">Need help? <strong>0020 500 - 000</strong></div>
         </div>
     </div>
 </header>

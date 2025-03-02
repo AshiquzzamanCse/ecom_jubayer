@@ -30,8 +30,8 @@
                                         <div class="ps-product__actions">
 
                                             <div class="ps-product__item"><a class="add_to_wishlist"
-                                                    style="cursor: pointer;" data-product_id="{{ $latest_product->id }}" title="Wishlist"><i
-                                                        class="fa fa-heart-o"></i></a>
+                                                    style="cursor: pointer;" data-product_id="{{ $latest_product->id }}"
+                                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
                                             </div>
 
                                             <div class="ps-product__item rotate" data-toggle="tooltip"
@@ -80,13 +80,16 @@
 
                                         <div class="ps-product__meta">
 
-                                            <span class="ps-product__price sale">Tk
-                                                {{ $latest_product->selling_price }}</span>
                                             @if ($latest_product->discount_price == null)
+                                                <span class="ps-product__price sale">Tk
+                                                    {{ $latest_product->selling_price }}</span>
                                             @else
-                                                <span class="ps-product__del">Tk
+                                                <span class="ps-product__price sale">Tk
                                                     {{ $latest_product->discount_price }}</span>
+                                                <span class="ps-product__del">Tk
+                                                    {{ $latest_product->selling_price }}</span>
                                             @endif
+
                                         </div>
 
                                         {{-- <div class="ps-product__rating">

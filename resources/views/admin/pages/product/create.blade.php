@@ -99,15 +99,24 @@
                         </div>
 
                         <!-- Code & Qty -->
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <label class="form-label fw-semibold">Code</label>
                             <input type="text" class="form-control" required name="code" placeholder="Enter code"
                                 value="{{ old('code') }}">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <label class="form-label fw-semibold">Quantity</label>
                             <input type="number" class="form-control" required name="qty"
                                 placeholder="Enter quantity" value="{{ old('qty') }}">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label class="form-label fw-semibold">Currancy</label>
+                            <select name="currancy" class="form-select">
+                                <option selected disabled>Choose...</option>
+                                <option value="dollar">$</option>
+                                <option value="taka">BDT</option>
+                            </select>
                         </div>
 
                         <!-- Prices -->

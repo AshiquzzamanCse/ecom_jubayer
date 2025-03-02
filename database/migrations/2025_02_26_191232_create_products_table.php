@@ -33,6 +33,7 @@ return new class extends Migration
 
             $table->string('code');
             $table->string('qty');
+            $table->string('currancy');
 
             $table->string('selling_price');
             $table->string('discount_price')->nullable();

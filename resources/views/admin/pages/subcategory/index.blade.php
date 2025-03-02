@@ -61,7 +61,7 @@
                                             style="width: 50px;height: 50px;" alt="">
                                     </td>
 
-                                    <td>{{ $item->category_id }}</td>
+                                    <td>{{ $item->category->name }}</td>
                                     <td>{{ $item->name }}</td>
 
                                     <td>

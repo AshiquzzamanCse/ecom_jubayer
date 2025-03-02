@@ -109,6 +109,7 @@ class ProductController extends Controller
 
             'code'           => $request->code,
             'qty'            => $request->qty,
+            'currancy'       => $request->currancy,
             'selling_price'  => $request->selling_price,
             'discount_price' => $request->discount_price,
             'size'           => $request->size,
@@ -277,6 +278,7 @@ class ProductController extends Controller
 
             'code'           => $request->code,
             'qty'            => $request->qty,
+            'currancy'       => $request->currancy,
             'selling_price'  => $request->selling_price,
             'discount_price' => $request->discount_price,
             'size'           => $request->size,

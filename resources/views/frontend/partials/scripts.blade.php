@@ -9,16 +9,6 @@
 <script src="{{ asset('frontend/assets/plugins/lightGallery/dist/js/lightgallery-all.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/plugins/slick/slick/slick.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/plugins/noUiSlider/nouislider.min.js') }}"></script>
-<!-- custom code-->
-<script src="{{ asset('frontend/assets/js/main.js') }}"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Notyf CSS -->
-<link href="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
 <script type="text/javascript">
     $.ajaxSetup({
@@ -28,8 +18,23 @@
     })
 </script>
 
+<!-- custom code-->
+<script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+
+{{-- sweetalert2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Notyf CSS -->
+<link href="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3.8.0/notyf.min.js"></script>
+
+{{-- toastr --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+
 {{-- add_to_cart_btn_product --}}
-{{-- <script>
+<script>
     const notyf = new Notyf();
 
     $('.add_to_cart_btn_product').click(function() {
@@ -47,6 +52,8 @@
             },
             success: function(data) {
 
+                miniCart();
+
                 if ($.isEmptyObject(data.error)) {
                     notyf.success(data.success); // Success toast
                 } else {
@@ -56,8 +63,9 @@
             }
         });
     });
-</script> --}}
-<script>
+</script>
+
+{{-- <script>
     const notyf = new Notyf();
 
     $('.add_to_cart_btn_product').click(function() {
@@ -87,11 +95,154 @@
             }
         });
     });
+</script> --}}
+
+{{-- miniCart Load --}}
+<script type="text/javascript">
+    function miniCart() {
+        $.ajax({
+            type: 'GET',
+            url: '/product/mini/cart',
+            dataType: 'json',
+            success: function(response) {
+                //console.log(response)
+
+                $('span[id="cartSubTotal"]').text(response.cartTotal);
+                $('#cartQty').text(response.cartQty);
+
+                var miniCart = ""
+
+                $.each(response.carts, function(key, value) {
+
+                    //console.log(value.options.image)
+
+                    // product/image/4KMJ2wiA0c1740887640.jpg
+                    //http://127.0.0.1:8000/product/kenyon-harper-goal
+                    // http://127.0.0.1:8000/storage/product/image/ebCvUasvme1740887686.jpg
+
+                    miniCart += ` <ul class="ps-cart__items">
+
+                                <li class="ps-cart__item">
+
+                                    <div class="ps-product--mini-cart">
+
+                                        <a class="ps-product__thumbnail"
+                                            href="">
+                                            <img src="http://127.0.0.1:8000/storage/${value.options.image}"
+                                                alt="" />
+                                        </a>
+
+                                        <div class="ps-product__content">
+                                            <p class="ps-product__meta">${value.name}</p>
+
+                                            <p class="ps-product__meta"><span class="ps-product__price">$${value.price}</span> x <span class="ps-product__price">${value.qty}</span>
+                                            </p>
+
+                                        </div>
+
+                                        <a class="ps-product__remove" type="submit" style="cursor: pointer;" id="${value.rowId}" onclick="miniCartRemove(this.id)"><i
+                                                class="icon-cross"></i>
+                                        </a>
+
+                                    </div>
+
+                                </li>
+
+                            </ul> `
+                });
+
+                $('#miniCart').html(miniCart);
+
+            }
+
+        })
+    }
+    miniCart();
 </script>
 
-{{-- add_to_cart_btn_product --}}
+{{-- MiNiCart Remove  --}}
+<script>
+    function miniCartRemove(rowId) {
+        $.ajax({
+            type: 'GET',
+            url: '/minicart/product/remove/' + rowId,
+            dataType: 'json',
+            success: function(data) {
+                miniCart();
+
+                // Initialize Notyf
+                const notyf = new Notyf({
+                    duration: 3000,
+                    position: {
+                        x: 'right',
+                        y: 'top'
+                    }
+                });
+
+                if ($.isEmptyObject(data.error)) {
+                    notyf.success(data.success);
+                } else {
+                    notyf.error(data.error);
+                }
+            }
+        });
+    }
+</script>
 
 <script>
+    function cartIncrement(rowId) {
+        $.ajax({
+            type: 'GET',
+            url: "/cart-increment/" + rowId,
+            dataType: 'json',
+            success: function(data) {
+                window.location.href = "/view-cart";  // Redirect to the view-cart page
+            }
+        });
+    }
+
+    function cartDecrement(rowId) {
+        $.ajax({
+            type: 'GET',
+            url: "/cart-decrement/" + rowId,
+            dataType: 'json',
+            success: function(data) {
+                window.location.href = "/view-cart";  // Redirect to the view-cart page
+            }
+        });
+    }
+</script>
+
+
+{{-- <script>
+    function cartIncrement(rowId) {
+        $.ajax({
+            type: 'GET',
+            url: "/cart-increment/" + rowId,
+            dataType: 'json',
+            success: function(data) {
+                miniCart();
+
+            }
+        });
+    }
+
+    function cartDecrement(rowId) {
+        $.ajax({
+            type: 'GET',
+            url: "/cart-decrement/" + rowId,
+            dataType: 'json',
+            success: function(data) {
+                miniCart();
+
+            }
+        });
+    }
+</script> --}}
+
+
+{{-- add_to_cart_btn_product --}}
+{{-- <script>
     $(document).on('click', '.remove-from-cart', function(e) {
         e.preventDefault();
 
@@ -120,7 +271,7 @@
 
         });
     });
-</script>
+</script> --}}
 
 
 {{-- =====================WishList Product All Code Start ============================ --}}
@@ -265,7 +416,5 @@
         });
     }
 </script>
-
-
 
 {{-- =====================Wishlist Product All Code End ============================== --}}

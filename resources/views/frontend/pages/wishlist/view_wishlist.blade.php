@@ -135,18 +135,21 @@
                                     <td class="ps-product__remove">
                                         <a type="submit" style="cursor:pointer" id="{{ $cartWishlist->rowId }}"
                                             onclick="wishlistRemove(this.id)">
-                                            <i class="icon-cross"></i>
+                                            <i class="icon-cross text-danger"></i>
                                         </a>
                                     </td>
+
                                     <td class="">
-                                        <a class="ps-product__image" style="width: 60px;height:60px">
-                                            <figure><img src="{{ asset('storage/' . $cartWishlist->options->image) }}" alt>
-                                            </figure>
-                                        </a>
+                                        <figure>
+                                            <img style="width: 60px; height: 60px;"
+                                                src="{{ asset('storage/' . $cartWishlist->options->image) }}">
+                                        </figure>
                                     </td>
+
                                     <td class="ps-product__name">
                                         <a href="">{{ $cartWishlist->name }}</a>
                                     </td>
+
                                     <td class="ps-product__meta">
                                         <span class="ps-product__price sale">Tk {{ $cartWishlist->price }}</span>
                                     </td>
@@ -159,9 +162,10 @@
                                         @endif
                                     </td>
 
-
-                                    <td class="ps-product__cart" >
-                                        <a class="add_to_cart_btn_product" type="submit" style="cursor:pointer" id="{{$cartWishlist->rowId}}" data-product_id="{{ $cartWishlist->id }}">Add to cart</a>
+                                    <td class="ps-product__cart">
+                                        <a class="add_to_cart_btn_product" type="submit" style="cursor:pointer"
+                                            id="{{ $cartWishlist->rowId }}" data-product_id="{{ $cartWishlist->id }}">Add to
+                                            cart</a>
                                     </td>
 
                                 </tr>
