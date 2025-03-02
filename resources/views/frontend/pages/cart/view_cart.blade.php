@@ -198,8 +198,8 @@
                             </div>
 
                             <div class="ps-shopping__checkout">
-                                <a class="ps-btn ps-btn--warning" href="">Proceed to checkout</a>
-                                <a class="ps-shopping__link" href="">Continue To Shopping</a>
+                                <a class="ps-btn ps-btn--warning" href="{{ route('checkout') }}">Proceed to checkout</a>
+                                <a class="ps-shopping__link" href="{{ route('all.product') }}">Continue To Shopping</a>
                             </div>
                         </div>
                     </div>

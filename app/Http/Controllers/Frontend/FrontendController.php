@@ -386,4 +386,10 @@ class FrontendController extends Controller
         return response()->json(['success' => 'Successfully Remove From Wishlist']);
     }
 
+    //checkout
+    public function checkout()
+    {
+        return view('frontend.pages.checkout.checkout');
+    }
+
 }

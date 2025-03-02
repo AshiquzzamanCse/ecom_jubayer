@@ -33,6 +33,9 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/cart-increment/{rowId}', 'CartIncrement');
     Route::get('/cart-decrement/{rowId}', 'CartDecrement');
 
+    //checkout
+    Route::get('/checkout', 'checkout');
+
     // Route::get('/cart/remove/{rowId}', 'RemoveMiniCart')->name('cart.remove');
 
     //Add To Wishlist
