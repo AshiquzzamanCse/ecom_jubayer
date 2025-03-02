@@ -97,6 +97,8 @@
                                         <th class="ps-product__remove"></th>
                                         <th class="ps-product__thumbnail">Image</th>
                                         <th class="ps-product__name">Product name</th>
+                                        <th class="ps-product__name">Size</th>
+                                        <th class="ps-product__name">Color</th>
                                         <th class="ps-product__meta">Unit price</th>
                                         <th class="ps-product__quantity">Quantity</th>
                                         <th class="ps-product__subtotal">Subtotal</th>
@@ -123,6 +125,14 @@
                                             </td>
                                             <td class="ps-product__name">
                                                 <a href="">{{ $cart->name }}</a>
+                                            </td>
+
+                                            <td class="">
+                                                <a href="">{{ $cart->options->size }}</a>
+                                            </td>
+
+                                            <td class="">
+                                                <a href="">{{ $cart->options->color }}</a>
                                             </td>
 
                                             <td class="ps-product__meta">
@@ -160,7 +170,7 @@
                                                 </div>
                                             </td>
 
-                                            <td class="ps-product__subtotal">$ {{ $cart->price * $cart->qty}}</td>
+                                            <td class="ps-product__subtotal">$ {{ $cart->price * $cart->qty }}</td>
 
                                         </tr>
                                     @empty

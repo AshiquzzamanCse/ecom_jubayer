@@ -114,7 +114,7 @@
                             <label class="form-label fw-semibold">Currancy</label>
                             <select name="currancy" class="form-select">
                                 <option selected disabled>Choose...</option>
-                                <option value="dollar">$</option>
+                                <option value="$">$</option>
                                 <option value="taka">BDT</option>
                             </select>
                         </div>

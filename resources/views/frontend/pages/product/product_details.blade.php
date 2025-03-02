@@ -44,7 +44,7 @@
                                 <div class="ps-product__info">
 
                                     <div class="ps-product__branch">{{ optional($product->category)->name }}</div>
-                                    <div class="ps-product__title">{{ $product->name }}</div>
+                                    <div class="ps-product__title" id="dpname">{{ $product->name }}</div>
 
                                     {{-- <div class="ps-product__rating">
                                         <select class="ps-rating" data-read-only="true">
@@ -109,46 +109,74 @@
                             </div>
 
                             <div class="ps-product__meta">
-                                <span class="" style="font-size: 25px;">Tk {{ $product->selling_price }}</span>
+
                                 @if ($product->discount_price == null)
+                                    <span class="ps-product__price" style="font-size: 22px">{{ $product->currancy }}
+                                        {{ $product->selling_price }}</span>
                                 @else
-                                    <span class="ps-product__del">Tk
+                                    <span class="ps-product__price" style="font-size: 22px">{{ $product->currancy }}
                                         {{ $product->discount_price }}</span>
+                                    <span class="ps-product__del" style="font-size: 15px">{{ $product->currancy }}
+                                        {{ $product->selling_price }}</span>
                                 @endif
+
                             </div>
 
-                            @if ($colors == null)
-                                <div class="ps-product__group">
+                            {{-- @if ($colors == null) --}}
+                            {{-- <div class="ps-product__group">
 
-                                    <h6>Color</h6>
+                                <h6>Color</h6>
 
-                                    <div class="ps-product__color ps-select--feature">
-                                        @foreach ($colors as $color)
-                                            <a href="#" data-value="{{ $color }}" title="{{ $color }}"
-                                                style="background-color:{{ $color }};"></a>
-                                        @endforeach
-                                    </div>
-
-
+                                <div class="ps-product__color ps-select--feature">
+                                    @foreach ($colors as $color)
+                                        <a href="#" id="dcolor" data-value="{{ $color }}"
+                                            title="{{ $color }}" style="background-color:{{ $color }};"></a>
+                                    @endforeach
                                 </div>
-                            @endif
 
-                            @if ($sizes == null)
-                                <div class="ps-product__group">
 
-                                    <h6>Size</h6>
+                            </div> --}}
+                            {{-- @endif
 
-                                    <div class="ps-product__size ps-select--feature">
-                                        @foreach ($sizes as $size)
-                                            <a href="#" data-value="{{ $size }}"
-                                                title="{{ $size }}">{{ $size }}</a>
-                                        @endforeach
-                                    </div>
+                            @if ($sizes == null) --}}
+                            {{-- <div class="ps-product__group">
 
+                                <h6>Size</h6>
+
+                                <div class="ps-product__size ps-select--feature">
+                                    @foreach ($sizes as $size)
+                                        <a href="#" id="dsize" data-value="{{ $size }}"
+                                            title="{{ $size }}">{{ $size }}</a>
+                                    @endforeach
                                 </div>
-                            @endif
 
-                            <div class="ps-product__quantity">
+                            </div> --}}
+                            {{-- @endif --}}
+
+                            {{-- ================================= --}}
+                            <div class="ps-product__group">
+                                <h6>Color</h6>
+                                <select id="dcolor" class="ps-product__color ps-select--feature">
+                                    @foreach ($colors as $color)
+                                        <option value="{{ $color }}" style="background-color:{{ $color }};" title="{{ $color }}">
+                                            {{ $color }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="ps-product__group">
+                                <h6>Size</h6>
+                                <select id="dsize" class="ps-product__size ps-select--feature">
+                                    @foreach ($sizes as $size)
+                                        <option value="{{ $size }}" title="{{ $size }}">{{ $size }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            {{-- ================================= --}}
+
+                            {{-- <div class="ps-product__quantity">
                                 <h6>Quantity</h6>
                                 <div class="def-number-input number-input safari_only">
                                     <button class="minus"
@@ -159,10 +187,24 @@
                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()"><i
                                             class="icon-plus"></i></button>
                                 </div>
-                            </div><a class="ps-btn ps-btn--warning" href="#" data-toggle="modal"
-                                data-target="#popupAddcartV2">Add to cart</a>
-                            <div class="ps-product__variations"><a class="ps-product__link" href="wishlist.html">Add to
-                                    wishlist</a><a class="ps-product__link" href="compare.html">Add to Compare</a></div>
+                            </div> --}}
+
+                            <input type="hidden" name="parent_id" id="dproduct_id" value="{{ $product->id }}">
+
+                            <a type="submit" onclick="addToCartDetails()" class="ps-btn ps-btn--warning">Add to cart</a>
+
+                            <div class="ps-product__variations">
+
+                                <a class="add_to_wishlist ps-product__link"
+                                    style="cursor: pointer; text-decoration:underline"
+                                    data-product_id="{{ $product->id }}">Add to
+                                    wishlist
+                                </a>
+
+                                <a class="ps-product__link" href="">Add to Compare</a>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>

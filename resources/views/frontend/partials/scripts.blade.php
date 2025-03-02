@@ -196,7 +196,7 @@
             url: "/cart-increment/" + rowId,
             dataType: 'json',
             success: function(data) {
-                window.location.href = "/view-cart";  // Redirect to the view-cart page
+                window.location.href = "/view-cart"; // Redirect to the view-cart page
             }
         });
     }
@@ -207,7 +207,7 @@
             url: "/cart-decrement/" + rowId,
             dataType: 'json',
             success: function(data) {
-                window.location.href = "/view-cart";  // Redirect to the view-cart page
+                window.location.href = "/view-cart"; // Redirect to the view-cart page
             }
         });
     }
@@ -418,3 +418,35 @@
 </script>
 
 {{-- =====================Wishlist Product All Code End ============================== --}}
+
+
+<script>
+    function addToCartDetails() {
+        var name = $('#dpname').text();
+        var id = $('#dproduct_id').val();
+        var color = $('#dcolor').val(); // Get selected color
+        var size = $('#dsize').val(); // Get selected size
+
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            data: {
+                color: color,
+                size: size,
+                name: name,
+            },
+            url: "/dcart/data/store/" + id,
+            success: function(data) {
+                miniCart();
+
+                if ($.isEmptyObject(data.error)) {
+                    notyf.success(data.success); // Success toast
+                } else {
+                    notyf.error(data.error); // Error toast
+                }
+
+
+            }
+        });
+    }
+</script>

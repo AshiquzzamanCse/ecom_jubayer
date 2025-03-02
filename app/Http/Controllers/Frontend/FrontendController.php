@@ -153,14 +153,14 @@ class FrontendController extends Controller
 
         $product = Product::findOrFail($id);
 
-        // $cartItem = Cart::search(function ($cartItem, $rowId) use ($id) {
-        //     return $cartItem->id === $id;
-        // });
+        $cartItem = Cart::search(function ($cartItem, $rowId) use ($id) {
+            return $cartItem->id === $id;
+        });
 
-        // if ($cartItem->isNotEmpty()) {
+        if ($cartItem->isNotEmpty()) {
 
-        //     return response()->json(['error' => 'This Product Has Already Added']);
-        // }
+            return response()->json(['error' => 'This Product Has Already Added']);
+        }
 
         if ($product->discount_price == null) {
 
@@ -175,7 +175,8 @@ class FrontendController extends Controller
 
                 'options' => [
                     'image' => $product->image,
-                    // 'color' => $request->color,
+                    'color' => $request->color,
+                    'size'  => $request->size,
                 ],
 
             ]);
@@ -194,7 +195,8 @@ class FrontendController extends Controller
 
                 'options' => [
                     'image' => $product->image,
-                    // 'color' => $request->color,
+                    'color' => $request->color,
+                    'size'  => $request->size,
                 ],
 
             ]);
@@ -226,46 +228,6 @@ class FrontendController extends Controller
         return response()->json(['success' => 'Product Remove From Cart']);
 
     }
-
-    // public function AddToCartProductHome(Request $request)
-    // {
-    //     $id      = $request->product_id;
-    //     $product = Product::findOrFail($id);
-
-    //     // Check if product has a discount price
-    //     if ($product->discount_price == null) {
-    //         Cart::add([
-    //             'id'      => $id,
-    //             'name'    => $product->name,
-    //             'qty'     => 1,
-    //             'price'   => $product->selling_price,
-    //             'weight'  => 1,
-    //             'options' => [
-    //                 'image' => $product->image,
-    //             ],
-    //         ]);
-    //     } else {
-    //         Cart::add([
-    //             'id'      => $id,
-    //             'name'    => $product->name,
-    //             'qty'     => 1,
-    //             'price'   => $product->discount_price,
-    //             'weight'  => 1,
-    //             'options' => [
-    //                 'image' => $product->image,
-    //             ],
-    //         ]);
-    //     }
-
-    //     // Get the current cart count
-    //     $cartCount = Cart::count();
-
-    //     // Return the response with cart count and success message
-    //     return response()->json([
-    //         'success'    => 'Successfully Added to Your Cart',
-    //         'cart_count' => $cartCount, // Pass the updated cart count
-    //     ]);
-    // }
 
     //viewCart
     public function viewCart()
@@ -390,6 +352,31 @@ class FrontendController extends Controller
     public function checkout()
     {
         return view('frontend.pages.checkout.checkout');
+    }
+
+    public function AddToCartDetails(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+
+        $color = $request->color; // Get color
+        $size  = $request->size;  // Get size
+
+        $price = $product->discount_price ?? $product->selling_price;
+
+        Cart::add([
+            'id'      => $id,
+            'name'    => $request->name,
+            'qty'     => 1,
+            'price'   => $price,
+            'weight'  => 1,
+            'options' => [
+                'image' => $product->image,
+                'color' => $color,
+                'size'  => $size,
+            ],
+        ]);
+
+        return response()->json(['success' => 'Successfully Added to Your Cart']);
     }
 
 }

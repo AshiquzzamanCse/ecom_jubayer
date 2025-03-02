@@ -39,9 +39,9 @@
                                                     data-toggle="modal" data-target="#popupCompare"><i
                                                         class="fa fa-align-left"></i></a></div>
 
-                                            <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
+                                            {{-- <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
                                                 title="Quick view"><a href="#" data-toggle="modal"
-                                                    data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                                    data-target="#popupQuickview"><i class="fa fa-search"></i></a></div> --}}
 
                                             <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
                                                 title="Add to cart">
@@ -55,6 +55,11 @@
                                             </div>
 
                                         </div>
+
+
+                                        {{-- ======================= Modal ========================= --}}
+
+                                        {{-- ======================= Modal ========================= --}}
 
                                         @if ($latest_product->discount_price == null)
                                             {{-- <span class="badge rounded-pill bg-dark">No Discount</span> --}}
@@ -127,16 +132,19 @@
                                             <div class="ps-product__cart"> <a class="ps-btn ps-btn--warning"
                                                     href="#" data-toggle="modal" data-target="#popupAddcart">Add
                                                     to cart</a></div>
+
                                             <div class="ps-product__item cart" data-toggle="tooltip"
                                                 data-placement="left" title="Add to cart"><a href="#"><i
                                                         class="fa fa-shopping-basket"></i></a></div>
+
                                             <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
                                                 title="Wishlist"><a href="wishlist.html"><i
                                                         class="fa fa-heart-o"></i></a>
                                             </div>
+
                                             <div class="ps-product__item rotate" data-toggle="tooltip"
-                                                data-placement="left" title="Add to compare"><a
-                                                    href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                                                data-placement="left" title="Add to compare"><a href="compare.html"><i
+                                                        class="fa fa-align-left"></i></a></div>
                                         </div>
                                     </div>
                                 </div>

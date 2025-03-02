@@ -136,7 +136,7 @@
                             <label class="form-label fw-semibold">Currancy</label>
                             <select name="currancy" class="form-select">
                                 <option selected disabled>Choose...</option>
-                                <option value="dollar" {{ old('currancy', $item->currancy ?? '') == 'dollar' ? 'selected' : '' }}>$</option>
+                                <option value="$" {{ old('currancy', $item->currancy ?? '') == 'dollar' ? 'selected' : '' }}>$</option>
                                 <option value="taka" {{ old('currancy', $item->currancy ?? '') == 'taka' ? 'selected' : '' }}>BDT</option>
                             </select>
                         </div>

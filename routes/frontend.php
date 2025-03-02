@@ -34,7 +34,9 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/cart-decrement/{rowId}', 'CartDecrement');
 
     //checkout
-    Route::get('/checkout', 'checkout');
+    Route::get('/checkout', 'checkout')->name('checkout');
+
+    Route::post('/dcart/data/store/{id}','AddToCartDetails');
 
     // Route::get('/cart/remove/{rowId}', 'RemoveMiniCart')->name('cart.remove');
 
