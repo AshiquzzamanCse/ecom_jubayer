@@ -1,23 +1,24 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\About;
-use App\Models\Banner;
-use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Contact;
-use App\Models\MultiImage;
-use App\Models\Order;
-use App\Models\OrderItem;
-use App\Models\Product;
-use App\Models\Team;
-use App\Models\Testimonial;
+use toastr;
 use Carbon\Carbon;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Team;
+use App\Models\About;
+use App\Models\Brand;
+use App\Models\Order;
+use App\Models\Banner;
+use App\Models\Contact;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\OrderItem;
+use App\Models\MultiImage;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
@@ -417,13 +418,13 @@ class FrontendController extends Controller
             'shipping_address_line1' => $request->shipping_address_line1,
             'shipping_address_line2' => $request->shipping_address_line2,
 
-            'shipping_charge'        => $request->shipping_charge,
+            'shipping_charge'        => 0,
             'payment_method'         => 'Cash On Delivery',
             'transaction_number'     => 'Cash On Delivery',
             'total_amount'           => $request->total_amount,
 
-            'invoice_number'         => 'DV' . mt_rand(10000000, 99999999),
-            // 'order_number' => Helper::generateOrderNumber(),
+            'invoice_number'         => 'San-' . mt_rand(10000000, 99999999),
+            'order_number'           => generateOrderNumber(),
 
             'order_date'             => Carbon::now()->format('d F Y'),
             'order_month'            => Carbon::now()->format('F'),
@@ -462,6 +463,7 @@ class FrontendController extends Controller
                 'order_id'   => $order_id,
                 'product_id' => $cart->id,
                 'color'      => $cart->options->color,
+                'size'      => $cart->options->size,
                 'qty'        => $cart->qty,
                 'price'      => $cart->price,
                 'created_at' => now(),
@@ -471,9 +473,9 @@ class FrontendController extends Controller
 
         Cart::destroy();
 
-        // toastr()->success('Order Successfully');
+        toastr()->success('Order Successfully');
 
-        return redirect()->route('index');
+        return redirect()->route('frontend.index');
     }
 
 }

@@ -33,6 +33,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
 
+
 {{-- add_to_cart_btn_product --}}
 <script>
     const notyf = new Notyf();
@@ -212,67 +213,6 @@
         });
     }
 </script>
-
-
-{{-- <script>
-    function cartIncrement(rowId) {
-        $.ajax({
-            type: 'GET',
-            url: "/cart-increment/" + rowId,
-            dataType: 'json',
-            success: function(data) {
-                miniCart();
-
-            }
-        });
-    }
-
-    function cartDecrement(rowId) {
-        $.ajax({
-            type: 'GET',
-            url: "/cart-decrement/" + rowId,
-            dataType: 'json',
-            success: function(data) {
-                miniCart();
-
-            }
-        });
-    }
-</script> --}}
-
-
-{{-- add_to_cart_btn_product --}}
-{{-- <script>
-    $(document).on('click', '.remove-from-cart', function(e) {
-        e.preventDefault();
-
-        var rowId = $(this).data('rowid');
-
-        // Make an AJAX request to remove the product from the cart
-        $.ajax({
-            url: '/cart/remove/' + rowId, // Ensure this is the correct URL for your route
-            type: 'GET', // or POST depending on your route definition
-
-            success: function(response) {
-                if (response.success) {
-                    // Show success toast notification
-                    notyf.success(response.success); // This will show the success message
-
-                    // Optionally reload the page
-                    location.reload(); // Reload to reflect cart update
-                } else {
-                    notyf.error("Something went wrong. Please try again later.");
-                }
-            },
-            error: function(xhr, status, error) {
-                // Show error toast notification
-                notyf.error("Something went wrong. Please try again later.");
-            }
-
-        });
-    });
-</script> --}}
-
 
 {{-- =====================WishList Product All Code Start ============================ --}}
 
