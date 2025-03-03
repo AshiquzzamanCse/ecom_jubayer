@@ -1,25 +1,25 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 
-use toastr;
-use Carbon\Carbon;
-use App\Models\Team;
+use App\Http\Controllers\Controller;
 use App\Models\About;
-use App\Models\Brand;
-use App\Models\Order;
 use App\Models\Banner;
-use App\Models\Contact;
-use App\Models\Product;
+use App\Models\Brand;
 use App\Models\Category;
-use App\Models\OrderItem;
+use App\Models\Contact;
 use App\Models\MultiImage;
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Product;
+use App\Models\Team;
 use App\Models\Testimonial;
+use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use App\Http\Controllers\Controller;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
+use toastr;
 
 class FrontendController extends Controller
 {
@@ -381,11 +381,20 @@ class FrontendController extends Controller
     //checkout
     public function checkout()
     {
-        $carts     = Cart::content();
-        $cartQty   = Cart::count();
-        $cartTotal = Cart::total();
+        if (Cart::total() > 0) {
 
-        return view('frontend.pages.checkout.checkout', compact('carts', 'cartQty', 'cartTotal'));
+            $carts     = Cart::content();
+            $cartQty   = Cart::count();
+            $cartTotal = Cart::total();
+
+            return view('frontend.pages.checkout.checkout', compact('carts', 'cartQty', 'cartTotal'));
+        } else {
+
+            toastr()->error('At least add to Cart One Product');
+
+            return redirect()->to('/');
+        }
+
     }
 
     public function checkoutStore(Request $request)
@@ -463,7 +472,7 @@ class FrontendController extends Controller
                 'order_id'   => $order_id,
                 'product_id' => $cart->id,
                 'color'      => $cart->options->color,
-                'size'      => $cart->options->size,
+                'size'       => $cart->options->size,
                 'qty'        => $cart->qty,
                 'price'      => $cart->price,
                 'created_at' => now(),

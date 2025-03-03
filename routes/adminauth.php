@@ -1,31 +1,32 @@
 <?php
 
-use App\Http\Controllers\AdminAuth\AuthenticatedSessionController;
-use App\Http\Controllers\AdminAuth\ConfirmablePasswordController;
-use App\Http\Controllers\AdminAuth\EmailVerificationNotificationController;
-use App\Http\Controllers\AdminAuth\EmailVerificationPromptController;
-use App\Http\Controllers\AdminAuth\NewPasswordController;
-use App\Http\Controllers\AdminAuth\PasswordController;
-use App\Http\Controllers\AdminAuth\PasswordResetLinkController;
-use App\Http\Controllers\AdminAuth\VerifyEmailController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\MetaController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\AdminHomePageController;
-use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CouponController;
-use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MessageController;
-use App\Http\Controllers\Admin\MetaController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SubCategoryController;
-use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminAuth\PasswordController;
+use App\Http\Controllers\Admin\AdminHomePageController;
+use App\Http\Controllers\AdminAuth\NewPasswordController;
+use App\Http\Controllers\AdminAuth\VerifyEmailController;
+use App\Http\Controllers\AdminAuth\PasswordResetLinkController;
+use App\Http\Controllers\AdminAuth\ConfirmablePasswordController;
+use App\Http\Controllers\AdminAuth\AuthenticatedSessionController;
+use App\Http\Controllers\AdminAuth\EmailVerificationPromptController;
+use App\Http\Controllers\AdminAuth\EmailVerificationNotificationController;
 
 Route::middleware('guest:admin')->group(function () {
 
@@ -151,23 +152,35 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     //bulkDestroy
     Route::post('/messages/bulk-destroy', [MessageController::class, 'bulkDestroy'])->name('message.bulkDestroy');
 
+    //Coupon Section
+    Route::controller(OrderController::class)->group(function () {
+
+        Route::get('/all/Order', 'allOrder')->name('all.order');
+        Route::get('/order/details/{id}', 'orderDetails')->name('order.details');
+        // Route::post('/store/coupon', 'StoreCoupon')->name('store.coupon');
+        // Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
+        // Route::post('/update/coupon', 'UpdateCoupon')->name('update.coupon');
+        // Route::get('/delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
+    });
+
     //Crud Operation
     Route::resources(
         [
             'banner'      => BannerController::class,
             'brand'       => BrandController::class,
-            // 'project'     => ProjectController::class,
+
             'product'     => ProductController::class,
             'about'       => AboutController::class,
 
             'team'        => TeamController::class,
             'testimonial' => TestimonialController::class,
+
             'contact'     => ContactController::class,
-
             'employee'    => EmployeeController::class,
-            'message'     => MessageController::class,
 
+            'message'     => MessageController::class,
             'category'    => CategoryController::class,
+
             'subcategory' => SubCategoryController::class,
 
         ],
