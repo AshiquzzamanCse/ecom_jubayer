@@ -8,9 +8,12 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\MultiImage;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\Team;
 use App\Models\Testimonial;
+use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -348,12 +351,7 @@ class FrontendController extends Controller
         return response()->json(['success' => 'Successfully Remove From Wishlist']);
     }
 
-    //checkout
-    public function checkout()
-    {
-        return view('frontend.pages.checkout.checkout');
-    }
-
+    //AddToCartDetails
     public function AddToCartDetails(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -377,6 +375,105 @@ class FrontendController extends Controller
         ]);
 
         return response()->json(['success' => 'Successfully Added to Your Cart']);
+    }
+
+    //checkout
+    public function checkout()
+    {
+        $carts     = Cart::content();
+        $cartQty   = Cart::count();
+        $cartTotal = Cart::total();
+
+        return view('frontend.pages.checkout.checkout', compact('carts', 'cartQty', 'cartTotal'));
+    }
+
+    public function checkoutStore(Request $request)
+    {
+        //dd($request->all());
+
+        // $admin = Admin::where('status', 1)->get();
+
+        $order_id = Order::insertGetId([
+
+            // 'user_id' => Auth::id(),
+
+            'billing_name'           => $request->billing_name,
+            'billing_address_line1'  => $request->billing_address_line1,
+            'billing_address_line2'  => $request->billing_address_line2,
+            'billing_city'           => $request->billing_city,
+            'billing_state'          => $request->billing_state,
+            'billing_postal_code'    => $request->billing_postal_code,
+            'billing_country'        => $request->billing_country,
+            'billing_phone'          => $request->billing_phone,
+            'billing_email'          => $request->billing_email,
+            'notes'                  => $request->notes,
+
+            'shipping_name'          => $request->shipping_name,
+            'shipping_phone'         => $request->shipping_phone,
+            'shipping_city'          => $request->shipping_city,
+            'shipping_state'         => $request->shipping_state,
+            'shipping_postal_code'   => $request->shipping_postal_code,
+            'shipping_country'       => $request->shipping_country,
+            'shipping_address_line1' => $request->shipping_address_line1,
+            'shipping_address_line2' => $request->shipping_address_line2,
+
+            'shipping_charge'        => $request->shipping_charge,
+            'payment_method'         => 'Cash On Delivery',
+            'transaction_number'     => 'Cash On Delivery',
+            'total_amount'           => $request->total_amount,
+
+            'invoice_number'         => 'DV' . mt_rand(10000000, 99999999),
+            // 'order_number' => Helper::generateOrderNumber(),
+
+            'order_date'             => Carbon::now()->format('d F Y'),
+            'order_month'            => Carbon::now()->format('F'),
+            'order_year'             => Carbon::now()->format('Y'),
+
+            'created_at'             => Carbon::now(),
+
+        ]);
+
+        //Send Mail
+        // $invoice = Order::findOrFail($order_id);
+
+        // $data = [
+
+        //     'invoice_number'        => $invoice->invoice_number,
+        //     'total_amount'          => $invoice->total_amount,
+        //     'billing_name'          => $invoice->billing_name,
+        //     'billing_email'         => $invoice->billing_email,
+        //     'billing_phone'         => $invoice->billing_phone,
+        //     'billing_address_line1' => $invoice->billing_address_line1,
+
+        // ];
+
+        // Mail::to($request->billing_email)->send(new OrderMail($data));
+        //End Send Mail
+
+        //Notification
+        // Notification::send($admin, new OrderComplete($request->billing_name));
+        //Notification
+
+        $carts = Cart::content();
+
+        foreach ($carts as $cart) {
+
+            OrderItem::insert([
+                'order_id'   => $order_id,
+                'product_id' => $cart->id,
+                'color'      => $cart->options->color,
+                'qty'        => $cart->qty,
+                'price'      => $cart->price,
+                'created_at' => now(),
+
+            ]);
+        } // End Foreach
+
+        Cart::destroy();
+
+        // toastr()->success('Order Successfully');
+
+        return redirect()->route('index');
     }
 
 }

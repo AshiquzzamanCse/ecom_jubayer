@@ -26,19 +26,21 @@ Route::controller(FrontendController::class)->group(function () {
     //AddToCartProductHome
     Route::post('/product-store-cart', 'AddToCartProductHome');
 
+    //Mini Cart
     Route::get('/product/mini/cart', 'AddMiniCart');
-    Route::get('/minicart/product/remove/{rowId}','RemoveMiniCart');
+    Route::get('/minicart/product/remove/{rowId}', 'RemoveMiniCart');
 
+    //View Cart
     Route::get('/view-cart', 'viewCart')->name('view.cart');
     Route::get('/cart-increment/{rowId}', 'CartIncrement');
     Route::get('/cart-decrement/{rowId}', 'CartDecrement');
 
+    //AddToCartDetails
+    Route::post('/dcart/data/store/{id}', 'AddToCartDetails');
+
     //checkout
     Route::get('/checkout', 'checkout')->name('checkout');
-
-    Route::post('/dcart/data/store/{id}','AddToCartDetails');
-
-    // Route::get('/cart/remove/{rowId}', 'RemoveMiniCart')->name('cart.remove');
+    Route::post('/checkout-store', 'checkoutStore')->name('checkout.store');
 
     //Add To Wishlist
     Route::post('/add-to-wishlist', 'AddToWishlist');

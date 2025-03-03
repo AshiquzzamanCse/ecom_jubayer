@@ -10,7 +10,8 @@
                     {{-- <p class="ps-checkout__text">Have a coupon? <a href="shopping-cart.html">Click here to enter
                             your code</a></p> --}}
                 </div>
-                <form action="https://nouthemes.net/html/mymedi/do_action" method="post">
+                <form action="{{ route('checkout.store') }}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <div class="ps-checkout__form">
