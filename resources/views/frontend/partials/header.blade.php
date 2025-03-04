@@ -221,7 +221,6 @@
                     <ul class="menu">
 
 
-
                         <li class="has-mega-menu"><a href="{{ route('frontend.index') }}">Home</a></li>
 
                         {{-- <li class="has-mega-menu"><a href="#"> Pages<span class="sub-toggle"><i
