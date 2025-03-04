@@ -15,7 +15,10 @@
 
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href=""> <img src="{{ !empty(optional($setting->first())->site_logo) && file_exists(public_path('storage/' . optional($setting->first())->site_logo)) ? asset('storage/' . optional($setting->first())->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" alt><img class="sticky-logo" src="{{ !empty(optional($setting->first())->site_logo) && file_exists(public_path('storage/' . optional($setting->first())->site_logo)) ? asset('storage/' . optional($setting->first())->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+            <div class="ps-logo"><a href=""> <img
+                        src="{{ !empty(optional($setting->first())->site_logo) && file_exists(public_path('storage/' . optional($setting->first())->site_logo)) ? asset('storage/' . optional($setting->first())->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
+                        alt><img class="sticky-logo"
+                        src="{{ !empty(optional($setting->first())->site_logo) && file_exists(public_path('storage/' . optional($setting->first())->site_logo)) ? asset('storage/' . optional($setting->first())->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
                         alt></a></div><a class="ps-menu--sticky" href="#"><i class="fa fa-bars"></i></a>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">
@@ -176,76 +179,13 @@
 
     <div class="ps-navigation">
         <div class="container">
+
             <div class="ps-navigation__left">
                 <nav class="ps-main-menu">
                     <ul class="menu">
 
 
                         <li class="has-mega-menu"><a href="{{ route('frontend.index') }}">Home</a></li>
-
-                        {{-- <li class="has-mega-menu"><a href="#"> Pages<span class="sub-toggle"><i
-                                        class="fa fa-chevron-down"></i></span></a>
-                            <div class="mega-menu">
-                                <div class="container">
-                                    <div class="mega-menu__row">
-                                        <div class="mega-menu__column">
-                                            <h4>Category</h4>
-                                            <ul class="sub-menu--mega">
-                                                <li><a href="promo-category.html">Promo Category</a></li>
-                                                <li><a href="category-grid.html">Grid</a></li>
-                                                <li><a href="category-grid-detail.html">Grid with details</a></li>
-                                                <li><a href="category-grid-green.html">Grid with header green</a></li>
-                                                <li><a href="category-grid-dark.html">Grid with header dark</a></li>
-                                                <li><a href="category-grid-separate.html">Grid separate</a></li>
-                                                <li><a href="category-list.html">List</a></li>
-                                                <li><a href="category-loading-infinity.html">Loading Infinity</a></li>
-                                                <li><a href="category-load-more.html">Load more button</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="mega-menu__column">
-                                            <h4>Pages</h4>
-                                            <ul class="sub-menu--mega">
-                                                <li><a href="404.html">404</a></li>
-                                                <li><a href="about-us.html">About us</a></li>
-                                                <li><a href="contact-us.html">Contact us</a></li>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-detail.html">Porfolio Detail</a></li>
-                                                <li><a href="my-account.html">My Account</a></li>
-                                                <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                                <li><a href="coming-soon-v1.html">Coming soon 1</a></li>
-                                                <li><a href="coming-soon-v2.html">Coming soon 2</a></li>
-                                                <li><a href="product-result.html">Product Result</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="mega-menu__column">
-                                            <h4>Product</h4>
-                                            <ul class="sub-menu--mega">
-                                                <li><a href="product1.html">Layout 01</a></li>
-                                                <li><a href="product2.html">Layout 02</a></li>
-                                                <li><a href="product3.html">Layout 03</a></li>
-                                                <li><a href="product4.html">Layout 04</a></li>
-                                                <li><a href="product5.html">Layout 05</a></li>
-                                                <li><a href="product6.html">Layout 06</a></li>
-                                                <li><a href="product7.html">Layout 07</a></li>
-                                                <li><a href="product-variable.html">Product variable</a></li>
-                                                <li><a href="product-sold-out.html">Product sold out</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="mega-menu__column">
-                                            <h4>Blog</h4>
-                                            <ul class="sub-menu--mega">
-                                                <li><a href="blog-sidebar1.html">Blog sidebar 1</a></li>
-                                                <li><a href="blog-sidebar2.html">Blog sidebar 2</a></li>
-                                                <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                                <li><a href="blog-post1.html">Blog post 1</a></li>
-                                                <li><a href="blog-post2.html">Blog post 2</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </li> --}}
 
                         <li class="has-mega-menu"><a href="{{ route('all.product') }}">Product</a></li>
 
@@ -256,7 +196,9 @@
                     </ul>
                 </nav>
             </div>
+
             <div class="ps-navigation__right">Need help? <strong>0020 500 - 000</strong></div>
+
         </div>
     </div>
 </header>
