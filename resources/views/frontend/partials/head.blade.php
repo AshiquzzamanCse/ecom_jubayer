@@ -11,8 +11,8 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="img/favicon.png" rel="apple-touch-icon-precomposed">
-    <link href="img/favicon.png" rel="shortcut icon" type="image/png">
+    {{-- <link href="img/favicon.png" rel="apple-touch-icon-precomposed"> --}}
+    <link href="{{ !empty(optional($setting->first())->site_favicon) && file_exists(public_path('storage/' . optional($setting->first())->site_favicon)) ? asset('storage/' . optional($setting->first())->site_favicon) : asset('frontend/images/no-logo(217-55).jpg') }}" rel="shortcut icon" type="image/png">
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/fonts/Linearicons/Font/demo-files/demo.css') }}">

@@ -15,7 +15,7 @@
 
     <div class="ps-header__middle">
         <div class="container">
-            <div class="ps-logo"><a href=""> <img src="" alt><img class="sticky-logo" src=""
+            <div class="ps-logo"><a href=""> <img src="{{ !empty(optional($setting->first())->site_logo) && file_exists(public_path('storage/' . optional($setting->first())->site_logo)) ? asset('storage/' . optional($setting->first())->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" alt><img class="sticky-logo" src="{{ !empty(optional($setting->first())->site_logo) && file_exists(public_path('storage/' . optional($setting->first())->site_logo)) ? asset('storage/' . optional($setting->first())->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}"
                         alt></a></div><a class="ps-menu--sticky" href="#"><i class="fa fa-bars"></i></a>
             <div class="ps-header__right">
                 <ul class="ps-header__icons">

@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <div class="ps-footer--address">
-                                <div class="ps-logo"><a href="index.html"> <img src="" alt><img
+                                <div class="ps-logo"><a href=""> <img src="{{ !empty(optional($setting->first())->site_logo) && file_exists(public_path('storage/' . optional($setting->first())->site_logo)) ? asset('storage/' . optional($setting->first())->site_logo) : asset('frontend/images/no-logo(217-55).jpg') }}" alt><img
                                             class="logo-white" src="" alt><img class="logo-black"
                                             src="" alt><img class="logo-white-all"
                                             src="" alt><img class="logo-green"
@@ -60,8 +60,7 @@
                                 <hr>
                                 <p><a class="ps-footer__email"
                                         href="">
-                                        <i class="icon-envelope"></i><span class="__cf_email__"
-                                            data-cfemail="88ebe7e6fce9ebfcc8edf0e9e5f8e4eda6ebe7e5">[email&#160;protected]</span>
+                                        <i class="icon-envelope"></i><span class="__cf_email__">[email&#160;protected]</span>
                                     </a></p>
                             </div>
                         </div>
