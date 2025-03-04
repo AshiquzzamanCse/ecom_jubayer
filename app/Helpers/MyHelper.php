@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -75,3 +76,29 @@ if (!function_exists('newUpload')) {
         }
     }
 }
+
+if (!function_exists('generateOrderNumber')) {
+    function generateOrderNumber()
+    {
+        $orderNumber = 'ORD-' . strtoupper(Str::random(10));
+
+        try {
+            // Check if the generated order number already exists
+            $existingOrder = Order::where('order_number', $orderNumber)->first();
+        } catch (\Exception $e) {
+            // Handle any exceptions (e.g., database connection issues)
+            return $orderNumber;
+        }
+
+        // Generate a new order number if a duplicate is found
+        while ($existingOrder) {
+            $orderNumber = 'ORD-' . strtoupper(Str::random(10));
+            $existingOrder = Order::where('order_number', $orderNumber)->first();
+        }
+
+        return $orderNumber;
+    }
+}
+
+
+

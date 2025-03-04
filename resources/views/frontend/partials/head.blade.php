@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="" content="yes">
 
     <meta name="author" content="">
     <meta name="keywords" content="">
@@ -11,8 +11,8 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="img/favicon.png" rel="apple-touch-icon-precomposed">
-    <link href="img/favicon.png" rel="shortcut icon" type="image/png">
+    {{-- <link href="img/favicon.png" rel="apple-touch-icon-precomposed"> --}}
+    <link href="{{ !empty(optional($setting->first())->site_favicon) && file_exists(public_path('storage/' . optional($setting->first())->site_favicon)) ? asset('storage/' . optional($setting->first())->site_favicon) : asset('frontend/images/no-logo(217-55).jpg') }}" rel="shortcut icon" type="image/png">
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/fonts/Linearicons/Font/demo-files/demo.css') }}">
@@ -31,5 +31,5 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/home-1.css') }}">
 
-    <title>Ecommerce</title>
+    <title>Sanjaban</title>
 </head>

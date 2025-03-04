@@ -53,7 +53,8 @@
                     {{-- @endif --}}
 
                     {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
-                    <li> <a href="{{ route('admin.subcategory.index') }}"><i class='bx bx-radio-circle'></i>SubCategory</a>
+                    <li> <a href="{{ route('admin.subcategory.index') }}"><i
+                                class='bx bx-radio-circle'></i>SubCategory</a>
                     </li>
                     {{-- @endif --}}
 
@@ -85,8 +86,8 @@
                     {{-- @endif --}}
 
                     {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
-                    <li> <a href="{{ route('all.coupon') }}"><i class='bx bx-radio-circle'></i>Coupon</a>
-                    </li>
+                    {{-- <li> <a href="{{ route('all.coupon') }}"><i class='bx bx-radio-circle'></i>Coupon</a>
+                    </li> --}}
                     {{-- @endif --}}
 
                 </ul>
@@ -101,6 +102,14 @@
                     <div class="parent-icon"><i class="bx bx-message-square-edit"></i>
                     </div>
                     <div class="menu-title">HomePage</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.all.order') }}">
+                    <div class="parent-icon"><i class="bx bx-message-square-edit"></i>
+                    </div>
+                    <div class="menu-title">Order Management</div>
                 </a>
             </li>
 
