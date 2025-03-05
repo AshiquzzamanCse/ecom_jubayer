@@ -86,12 +86,12 @@
                                         <div class="ps-product__meta">
 
                                             @if ($latest_product->discount_price == null)
-                                                <span class="ps-product__price sale">Tk
+                                                <span class="ps-product__price sale">{{ $latest_product->currancy }}
                                                     {{ $latest_product->selling_price }}</span>
                                             @else
-                                                <span class="ps-product__price sale">Tk
+                                                <span class="ps-product__price sale">{{ $latest_product->currancy }}
                                                     {{ $latest_product->discount_price }}</span>
-                                                <span class="ps-product__del">Tk
+                                                <span class="ps-product__del">{{ $latest_product->currancy }}
                                                     {{ $latest_product->selling_price }}</span>
                                             @endif
 
