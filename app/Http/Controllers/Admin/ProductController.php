@@ -105,7 +105,7 @@ class ProductController extends Controller
             'assecrioes'     => $request->assecrioes,
             'brand_id'       => $request->brand_id,
             'category_id'    => $request->category_id,
-            'subcategory_id' => $request->subcategory_id,
+            // 'subcategory_id' => $request->subcategory_id,
 
             'code'           => $request->code,
             'qty'            => $request->qty,
@@ -274,7 +274,7 @@ class ProductController extends Controller
             'assecrioes'     => $request->assecrioes,
             'brand_id'       => $request->brand_id,
             'category_id'    => $request->category_id,
-            'subcategory_id' => $request->subcategory_id,
+            // 'subcategory_id' => $request->subcategory_id,
 
             'code'           => $request->code,
             'qty'            => $request->qty,

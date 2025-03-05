@@ -53,9 +53,9 @@
                     {{-- @endif --}}
 
                     {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}
-                    <li> <a href="{{ route('admin.subcategory.index') }}"><i
+                    {{-- <li> <a href="{{ route('admin.subcategory.index') }}"><i
                                 class='bx bx-radio-circle'></i>SubCategory</a>
-                    </li>
+                    </li> --}}
                     {{-- @endif --}}
 
                     {{-- @if (Auth::guard('admin')->user()->can('all.role')) --}}

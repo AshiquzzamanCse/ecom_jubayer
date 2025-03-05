@@ -97,7 +97,7 @@
                         </div>
 
                         <!-- SubCategory (Dynamically Loaded) -->
-                        <div class="col-md-2">
+                        {{-- <div class="col-md-2">
                             <label class="form-label fw-semibold">SubCategory</label>
                             <select name="subcategory_id" class="form-select" id="subcategory">
                                 <option selected disabled>Choose...</option>
@@ -110,7 +110,7 @@
                                     @endforeach
                                 @endif
                             </select>
-                        </div>
+                        </div> --}}
 
 
                         <!-- Product Name -->

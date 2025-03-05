@@ -181,7 +181,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
             'message'     => MessageController::class,
             'category'    => CategoryController::class,
 
-            'subcategory' => SubCategoryController::class,
+            // 'subcategory' => SubCategoryController::class,
 
         ],
 
